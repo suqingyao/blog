@@ -23,10 +23,12 @@ const Navbar = () => {
 
   return (
     <nav
-      className={'sticky top-0 h-12 flex justify-end gap-3 align-center px-10'}>
+      className={
+        'sticky top-0 h-12 flex justify-end gap-3 align-center px-10 z-40 backdrop-blur-sm bg-white/30'
+      }>
       {linkList.map(link => (
         <Link key={link.url} href={link.url}>
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center cursor-pointer">
             <span className="lt-md:hidden">{link.title}</span>
             <div className={link.icon} />
           </div>
