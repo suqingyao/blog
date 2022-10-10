@@ -1,46 +1,16 @@
 const Project = () => {
   const projectList = [
     {
-      name: 'Ghost theme Moegi',
-      desc: 'An elegant & fresh ghost theme',
-      link: 'https://github.com/moegi-design/ghost-theme-Moegi',
+      name: 'Cloud Music',
+      desc: 'inspired by NetEase CloudMusic',
+      link: 'https://github.com/cullyfung/cloud-music-react-vite-ts',
       icon: 'i-twemoji-newspaper'
     },
     {
-      name: 'bus-vis',
-      desc: 'City bus visualizations of China',
-      link: 'https://bus.ljl.li/',
-      icon: 'i-twemoji-oncoming-bus'
-    },
-    {
-      name: 'oreooo',
-      desc: 'An oreo generater',
-      link: 'https://oreo.ddiu.io/',
-      icon: 'i-twemoji-cookie'
-    },
-    {
-      name: 'Tin',
-      desc: 'Mathematical arts driven by t, i and anything',
-      link: 'https://tin.ddiu.io/',
-      icon: 'i-twemoji-eight-spoked-asterisk'
-    },
-    {
-      name: 'Fluent emoji maker',
-      desc: 'Generate your own Fluent Emojis!',
-      link: 'https://emoji.ddiu.io/',
-      icon: 'i-twemoji-rolling-on-the-floor-laughing'
-    },
-    {
-      name: 'placeholder-image',
-      desc: 'Generate placeholder images by simply adding params',
-      link: 'https://ph.ljl.li/',
-      icon: 'i-twemoji-ice'
-    },
-    {
-      name: "Diu's Online Riddle",
-      desc: 'An online puzzle game',
-      link: 'https://riddle.ddiu.me/',
-      icon: 'i-twemoji-exploding-head'
+      name: 'Jira',
+      desc: 'inspired by jira',
+      link: 'https://github.com/cullyfung/jira',
+      icon: 'i-twemoji-newspaper'
     }
   ]
 
