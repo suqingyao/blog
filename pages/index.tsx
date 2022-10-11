@@ -8,7 +8,7 @@ const Home: NextPage = () => {
   return (
     <div className={'w-full h-full'}>
       <Head>
-        <title>Cully Fung Website</title>
+        <title>Cully Fung</title>
         <meta name="description" content="cully fung personal website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
