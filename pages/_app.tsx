@@ -2,9 +2,15 @@ import 'uno.css'
 import '@unocss/reset/tailwind.css'
 import '@/styles/globals.scss'
 import '@/styles/font.css'
+import '@/styles/nprogress.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import Layout from '@/components/layout'
+import { Router } from 'next/router'
+import nProgress from 'nprogress'
+Router.events.on('routeChangeStart', nProgress.start)
+Router.events.on('routeChangeError', nProgress.done)
+Router.events.on('routeChangeComplete', nProgress.done)
 
 function App({ Component, pageProps }: AppProps) {
   return (

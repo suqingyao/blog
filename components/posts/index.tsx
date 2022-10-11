@@ -16,12 +16,12 @@ const Posts = () => {
     {
       id: '1',
       title: 'hello',
-      url: 'http://localhost:3000',
+      url: 'https://blog-r049a2p5o-b0kuha.vercel.app',
       published_at: String(new Date())
     }
   ]
   const openLink = () => {
-    window.open('https://notes.ljl.li', '_blank')
+    window.open('https://blog-r049a2p5o-b0kuha.vercel.app', '_blank')
   }
   return (
     <>
