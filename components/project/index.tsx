@@ -15,7 +15,7 @@ const Project = () => {
   ]
 
   const openLink = () => {
-    window.open('https://github.com/cullyfung', '_blank')
+    window.open('https://github.com/cullyfung', '_bank')
   }
   return (
     <>

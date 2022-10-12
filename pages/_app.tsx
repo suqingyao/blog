@@ -8,6 +8,7 @@ import Head from 'next/head'
 import Layout from '@/components/layout'
 import { Router } from 'next/router'
 import nProgress from 'nprogress'
+import { AppProviders } from '@/context'
 Router.events.on('routeChangeStart', nProgress.start)
 Router.events.on('routeChangeError', nProgress.done)
 Router.events.on('routeChangeComplete', nProgress.done)
@@ -20,9 +21,11 @@ function App({ Component, pageProps }: AppProps) {
         <meta name="description" content="cully fung personal website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <AppProviders>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </AppProviders>
     </>
   )
 }

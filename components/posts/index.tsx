@@ -1,4 +1,5 @@
 import dayjs from 'dayjs'
+import Link from 'next/link'
 
 interface PostMeta {
   id: string
@@ -20,18 +21,15 @@ const Posts = () => {
       published_at: String(new Date())
     }
   ]
-  const openLink = () => {
-    window.open('https://blog-r049a2p5o-b0kuha.vercel.app', '_blank')
-  }
   return (
     <>
       <h2 className="flex items-center mt-14 mb-4 font-semibold text-3xl">
         <span className="outfit flex-1">Latest Posts</span>
-        <div
-          onClick={openLink}
-          className="op-50 ml-2 hover:op-100 transition-opacity cursor-pointer">
-          <div className="m-2 i-ri-arrow-right-up-line"></div>
-        </div>
+        <Link href="/posts">
+          <div className="op-50 ml-2 hover:op-100 transition-opacity cursor-pointer">
+            <div className="m-2 i-ri-arrow-right-up-line"></div>
+          </div>
+        </Link>
       </h2>
       <div className="grid grid-cols-1 -mx-2">
         {postList.map((post, index) => (

@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import ToggleTheme from '@/components/toggle-theme'
 
 interface LinkProps {
   url: string
@@ -24,7 +25,7 @@ const Navbar = () => {
   return (
     <nav
       className={
-        'sticky top-0 h-12 flex justify-end gap-3 align-center px-10 z-40 backdrop-blur-sm bg-white/30'
+        'sticky top-0 h-12 flex justify-end gap-3 align-center px-10 backdrop-blur-sm bg-white/30'
       }>
       {linkList.map(link => (
         <Link key={link.url} href={link.url}>
@@ -34,6 +35,7 @@ const Navbar = () => {
           </div>
         </Link>
       ))}
+      <ToggleTheme />
     </nav>
   )
 }
