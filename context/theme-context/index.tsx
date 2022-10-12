@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useState } from 'react'
+import { createContext, ReactNode, useContext, useMemo, useState } from 'react'
 
 interface ThemeContextProps {
   isDark: boolean
@@ -23,7 +23,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     <ThemeContext.Provider
       value={{
         toggleTheme,
-        isDark
+        isDark: useMemo(() => isDark, [isDark])
       }}>
       {children}
     </ThemeContext.Provider>

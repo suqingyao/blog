@@ -10,7 +10,7 @@ const Project = () => {
       name: 'Jira',
       desc: 'inspired by jira',
       link: 'https://github.com/cullyfung/jira',
-      icon: 'i-twemoji-newspaper'
+      icon: 'i-twemoji-eight-spoked-asterisk'
     }
   ]
 

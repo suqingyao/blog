@@ -25,7 +25,7 @@ const Navbar = () => {
   return (
     <nav
       className={
-        'sticky top-0 h-12 flex justify-end gap-3 align-center px-10 backdrop-blur-sm bg-white/30'
+        'sticky top-0 h-12 flex justify-end gap-3 align-center px-10 backdrop-blur-sm bg-white/30 dark:bg-[#212121]/30'
       }>
       {linkList.map(link => (
         <Link key={link.url} href={link.url}>
