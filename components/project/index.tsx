@@ -4,13 +4,13 @@ const Project = () => {
       name: 'Cloud Music',
       desc: 'inspired by NetEase CloudMusic',
       link: 'https://github.com/cullyfung/cloud-music-react-vite-ts',
-      icon: 'i-twemoji-newspaper'
+      icon: 'i-twemoji-musical-notes'
     },
     {
       name: 'Jira',
       desc: 'inspired by jira',
       link: 'https://github.com/cullyfung/jira',
-      icon: 'i-twemoji-eight-spoked-asterisk'
+      icon: 'i-twemoji-bookmark-tabs'
     }
   ]
 
