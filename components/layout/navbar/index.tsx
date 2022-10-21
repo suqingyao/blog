@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import ToggleTheme from '@/components/toggle-theme'
+import GithubLink from '@/components/github-link'
 
 interface LinkProps {
   url: string
@@ -35,6 +36,7 @@ const Navbar = () => {
           </div>
         </Link>
       ))}
+      <GithubLink repo="cullyfung" />
       <ToggleTheme />
     </nav>
   )
