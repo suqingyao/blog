@@ -1,4 +1,4 @@
-**[blog](https://blog-mauve-six.vercel.app/)**
+**[blog](https://blog-jet-alpha.vercel.app//)**
 
 my personal website powered by [Nextjs](https://www.nextjs.cn/)
 
