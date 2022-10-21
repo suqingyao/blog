@@ -12,7 +12,7 @@ interface LinkProps {
 const Navbar = () => {
   const linkList: LinkProps[] = [
     {
-      url: '/projects',
+      url: 'https://github.com/cullyfung',
       title: 'Projects',
       icon: 'i-ri-lightbulb-line md:hidden'
     },
