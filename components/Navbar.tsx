@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
-import ToggleTheme from '@/components/toggle-theme'
-import GithubLink from '@/components/github-link'
+import ToggleTheme from '@/components/ToggleTheme'
+import GithubLink from '@/components/GithubLink'
 
 interface LinkProps {
   url: string
@@ -11,13 +11,13 @@ interface LinkProps {
 
 const Navbar = () => {
   const linkList: LinkProps[] = [
+    // {
+    //   url: 'https://github.com/cullyfung',
+    //   title: 'Projects',
+    //   icon: 'i-ri-lightbulb-line md:hidden'
+    // },
     {
-      url: 'https://github.com/cullyfung',
-      title: 'Projects',
-      icon: 'i-ri-lightbulb-line md:hidden'
-    },
-    {
-      url: '/posts',
+      url: '/PostList',
       title: 'Blog',
       icon: 'i-ri-article-line md:hidden'
     }
@@ -27,7 +27,8 @@ const Navbar = () => {
     <nav
       className={
         'sticky top-0 h-12 flex items-center justify-between px-10 backdrop-blur-sm bg-white/30 dark:bg-[#212121]/30'
-      }>
+      }
+    >
       <div className="flex items-center">
         <Link href="/">
           <i className="i-twemoji-melting-face text-lg"> </i>

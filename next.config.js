@@ -1,10 +1,7 @@
 const { resolve } = require('path')
 const Unocss = require('@unocss/webpack').default
-const presetUno = require('@unocss/preset-uno').default()
-const presetIcon = require('@unocss/preset-icons').default()
-const presetTypography = require('@unocss/preset-typography').default()
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
   eslint: {
     dirs: ['src']
   },
@@ -12,9 +9,7 @@ const nextConfig = {
   swcMinify: true,
   sassOptions: {},
   webpack: (config, context) => {
-    config.plugins.push(
-      Unocss({ presets: [presetUno, presetIcon, presetTypography] })
-    )
+    config.plugins.push(Unocss())
     if (context.buildId === 'development') {
       // * disable filesystem cache for build
       // * https://github.com/unocss/unocss/issues/419
@@ -28,5 +23,3 @@ const nextConfig = {
     return config
   }
 }
-
-module.exports = nextConfig

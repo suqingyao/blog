@@ -25,7 +25,7 @@ const Posts = () => {
     <>
       <h2 className="flex items-center mt-14 mb-4 font-semibold text-3xl">
         <span className="outfit flex-1">Latest Posts</span>
-        <Link href="/posts">
+        <Link href="/PostList">
           <div className="op-50 ml-2 hover:op-100 transition-opacity cursor-pointer">
             <div className="m-2 i-ri-arrow-right-up-line"></div>
           </div>
@@ -47,7 +47,8 @@ const PostItem = (props: PostProps) => {
       className="flex px-3 py-2 mt-2 mr-2 rounded-md transition-colors decoration-none hover:bg-gray-100 dark:hover:bg-gray-50/10"
       href={data.url}
       target="_blank"
-      rel="noreferrer">
+      rel="noreferrer"
+    >
       <div className="flex-1">{data.title}</div>
       <div className="hidden sm:block op-40 font-normal">
         {dayjs(data.published_at).format('YYYY-MM-DD')}

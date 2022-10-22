@@ -1,5 +1,5 @@
 import React, { MouseEvent } from 'react'
-import { useThemeContext } from '@/context/theme-context'
+import { useThemeContext } from '@/context/ThemeContext'
 
 const ToggleTheme = () => {
   const { toggleTheme, isDark } = useThemeContext()

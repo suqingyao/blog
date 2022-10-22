@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@/context/theme-context'
+import { ThemeProvider } from '@/context/ThemeContext'
 import { ReactNode } from 'react'
 
 export const AppProviders = ({ children }: { children: ReactNode }) => {
