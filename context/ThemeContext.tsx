@@ -1,4 +1,5 @@
-import { createStorage, useStorage } from '@/utils'
+import { Theme } from '@/types'
+import { useStorage } from '@/utils'
 import {
   createContext,
   ReactNode,
@@ -9,30 +10,44 @@ import {
 } from 'react'
 
 interface ThemeContextProps {
-  isDark: boolean
+  theme: Theme
   toggleTheme: () => void
 }
 
-const ThemeContext = createContext<ThemeContextProps>({
-  isDark: false
-} as ThemeContextProps)
+const ThemeContext = createContext<ThemeContextProps>({} as ThemeContextProps)
 
 ThemeContext.displayName = 'ThemeContext'
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [isDark, setIsDark] = useState<boolean>(false)
+  const [theme, setTheme] = useState<Theme>(Theme.LIGHT)
 
   useEffect(() => {
-    setIsDark(useStorage().get(useThemeKey()) || false)
+    setTheme(() => {
+      const theme = useStorage().get(useThemeKey())
+      switch (theme) {
+        case Theme.LIGHT:
+          return Theme.LIGHT
+        case Theme.DARK:
+          return Theme.DARK
+        default:
+          return Theme.LIGHT
+      }
+    })
   }, [])
 
   const toggleTheme = () => {
-    setIsDark(prevState => {
-      document.documentElement.classList.toggle('dark', !prevState)
-      useStorage().set(useThemeKey(), !prevState)
-      console.log(11111)
-
-      return !prevState
+    setTheme(theme => {
+      switch (theme) {
+        case Theme.LIGHT:
+          document.documentElement.classList.toggle('dark', true)
+          return Theme.DARK
+        case Theme.DARK:
+          document.documentElement.classList.toggle('dark', false)
+          return Theme.LIGHT
+        default:
+          document.documentElement.classList.toggle('dark', false)
+          return Theme.LIGHT
+      }
     })
   }
 
@@ -40,7 +55,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     <ThemeContext.Provider
       value={{
         toggleTheme,
-        isDark: useMemo(() => isDark, [isDark])
+        theme: useMemo(() => theme, [theme])
       }}
     >
       {children}

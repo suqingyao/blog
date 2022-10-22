@@ -1,8 +1,9 @@
 import React, { MouseEvent } from 'react'
 import { useThemeContext } from '@/context/ThemeContext'
+import { Theme } from '@/types'
 
 const ToggleTheme = () => {
-  const { toggleTheme, isDark } = useThemeContext()
+  const { toggleTheme, theme } = useThemeContext()
 
   const handleToggleTheme = (event: MouseEvent) => {
     event.preventDefault()
@@ -12,14 +13,22 @@ const ToggleTheme = () => {
   return (
     <a
       onClick={handleToggleTheme}
-      className="flex flex-col justify-center cursor-pointer text-lg">
-      {isDark ? (
-        <div className="i-ri-sun-line"></div>
-      ) : (
-        <div className="i-ri-moon-line"></div>
-      )}
+      className="flex flex-col justify-center cursor-pointer text-lg"
+    >
+      <Icon theme={theme} />
     </a>
   )
+}
+
+const Icon = ({ theme }: { theme: Theme }) => {
+  switch (theme) {
+    case Theme.LIGHT:
+      return <div className="i-ri-sun-line" />
+    case Theme.DARK:
+      return <div className="i-ri-moon-line" />
+    default:
+      return <div className="i-ri-sun-line" />
+  }
 }
 
 export default ToggleTheme

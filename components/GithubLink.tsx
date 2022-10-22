@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 export interface GithubLinkProps {
@@ -6,14 +7,10 @@ export interface GithubLinkProps {
 
 const GithubLink = ({ repo }: GithubLinkProps) => {
   return (
-    <div className="flex items-center">
-      <a
-        href={`https://github.com/${repo}`}
-        target="_blank"
-        className="opacity-50 ml-1"
-        rel="noreferrer">
-        <div className="i-ri-github-fill text-lg dark:text-white" />
-      </a>
+    <div className="text-lg flex items-center dark:text-white">
+      <Link href={`https://github.com/${repo}`} target="_blank">
+        <div className="i-ri-github-line" />
+      </Link>
     </div>
   )
 }
