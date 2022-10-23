@@ -1,4 +1,4 @@
-import dayjs from 'dayjs'
+import { format } from 'date-fns'
 import Link from 'next/link'
 
 interface PostMeta {
@@ -51,7 +51,7 @@ const PostItem = (props: PostProps) => {
     >
       <div className="flex-1">{data.title}</div>
       <div className="hidden sm:block op-40 font-normal">
-        {dayjs(data.published_at).format('YYYY-MM-DD')}
+        {format(new Date(data.published_at), 'yyyy-MM-dd')}
       </div>
     </a>
   )
