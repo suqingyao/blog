@@ -1,13 +1,6 @@
 import { Theme } from '@/types'
-import { useStorage } from '@/utils'
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useLayoutEffect,
-  useRef
-} from 'react'
+import { isEmptyValue, useStorage } from '@/utils'
+import { createContext, ReactNode, useContext, useEffect, useRef } from 'react'
 
 interface ThemeContextProps {
   theme: Theme
@@ -23,14 +16,12 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
   const storage = useStorage()
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const theme = storage.get(StorageThemeKey)
-    if (theme) {
+
+    if (!isEmptyValue(theme)) {
       currentTheme.current = theme
     }
-  })
-
-  useEffect(() => {
     toggleTheme()
   }, [])
 
