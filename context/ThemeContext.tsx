@@ -5,8 +5,8 @@ import {
   ReactNode,
   useContext,
   useEffect,
-  useMemo,
-  useState
+  useLayoutEffect,
+  useRef
 } from 'react'
 
 interface ThemeContextProps {
@@ -19,43 +19,45 @@ const ThemeContext = createContext<ThemeContextProps>({} as ThemeContextProps)
 ThemeContext.displayName = 'ThemeContext'
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>(Theme.LIGHT)
+  const currentTheme = useRef<Theme>(Theme.LIGHT)
+
+  const storage = useStorage()
+
+  useLayoutEffect(() => {
+    const theme = storage.get(StorageThemeKey)
+    if (theme) {
+      currentTheme.current = theme
+    }
+  })
 
   useEffect(() => {
-    setTheme(() => {
-      const theme = useStorage().get(useThemeKey())
-      switch (theme) {
-        case Theme.LIGHT:
-          return Theme.LIGHT
-        case Theme.DARK:
-          return Theme.DARK
-        default:
-          return Theme.LIGHT
-      }
-    })
+    toggleTheme()
   }, [])
 
   const toggleTheme = () => {
-    setTheme(theme => {
-      switch (theme) {
-        case Theme.LIGHT:
-          document.documentElement.classList.toggle('dark', true)
-          return Theme.DARK
-        case Theme.DARK:
-          document.documentElement.classList.toggle('dark', false)
-          return Theme.LIGHT
-        default:
-          document.documentElement.classList.toggle('dark', false)
-          return Theme.LIGHT
-      }
-    })
+    switch (currentTheme.current) {
+      case Theme.LIGHT:
+        currentTheme.current = Theme.DARK
+        break
+      case Theme.DARK:
+        currentTheme.current = Theme.LIGHT
+        break
+      default:
+        currentTheme.current = Theme.LIGHT
+        break
+    }
+    storage.set(StorageThemeKey, currentTheme.current)
+    document.documentElement.classList.toggle(
+      'dark',
+      Theme.DARK === currentTheme.current
+    )
   }
 
   return (
     <ThemeContext.Provider
       value={{
         toggleTheme,
-        theme: useMemo(() => theme, [theme])
+        theme: currentTheme.current
       }}
     >
       {children}
@@ -65,4 +67,4 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
 export const useThemeContext = () => useContext(ThemeContext)
 
-export const useThemeKey = () => 'theme'
+export const StorageThemeKey = 'theme'
