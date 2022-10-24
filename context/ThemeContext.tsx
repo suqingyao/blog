@@ -1,6 +1,6 @@
 import { Theme } from '@/types'
-import { isEmptyValue, useStorage } from '@/utils'
-import { createContext, ReactNode, useContext, useEffect, useRef } from 'react'
+import { createContext, ReactNode, useContext } from 'react'
+import { useLocalStorage, useMount } from 'react-use'
 
 interface ThemeContextProps {
   theme: Theme
@@ -12,43 +12,43 @@ const ThemeContext = createContext<ThemeContextProps>({} as ThemeContextProps)
 ThemeContext.displayName = 'ThemeContext'
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const currentTheme = useRef<Theme>(Theme.LIGHT)
-
-  const storage = useStorage()
-
-  useEffect(() => {
-    const theme = storage.get(StorageThemeKey)
-
-    if (!isEmptyValue(theme)) {
-      currentTheme.current = theme
-    }
-    toggleTheme()
-  }, [])
+  const [theme, setTheme, remove] = useLocalStorage<Theme>(
+    ThemeKey,
+    Theme.LIGHT
+  )
 
   const toggleTheme = () => {
-    switch (currentTheme.current) {
+    switch (theme) {
       case Theme.LIGHT:
-        currentTheme.current = Theme.DARK
+        setTheme(() => {
+          document.documentElement.classList.toggle('dark', true)
+          return Theme.DARK
+        })
         break
       case Theme.DARK:
-        currentTheme.current = Theme.LIGHT
+        setTheme(() => {
+          document.documentElement.classList.toggle('dark', false)
+          return Theme.LIGHT
+        })
         break
       default:
-        currentTheme.current = Theme.LIGHT
+        setTheme(() => {
+          document.documentElement.classList.toggle('dark', false)
+          return Theme.LIGHT
+        })
         break
     }
-    storage.set(StorageThemeKey, currentTheme.current)
-    document.documentElement.classList.toggle(
-      'dark',
-      Theme.DARK === currentTheme.current
-    )
   }
+
+  useMount(() => {
+    document.documentElement.classList.toggle('dark', theme === Theme.DARK)
+  })
 
   return (
     <ThemeContext.Provider
       value={{
         toggleTheme,
-        theme: currentTheme.current
+        theme: theme || Theme.LIGHT
       }}
     >
       {children}
@@ -58,4 +58,4 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
 export const useThemeContext = () => useContext(ThemeContext)
 
-export const StorageThemeKey = 'theme'
+export const ThemeKey = 'theme'
