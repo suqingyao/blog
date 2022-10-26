@@ -18,26 +18,17 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   )
 
   const toggleTheme = () => {
-    switch (theme) {
-      case Theme.LIGHT:
-        setTheme(() => {
-          document.documentElement.classList.toggle('dark', true)
-          return Theme.DARK
-        })
-        break
-      case Theme.DARK:
-        setTheme(() => {
-          document.documentElement.classList.toggle('dark', false)
-          return Theme.LIGHT
-        })
-        break
-      default:
-        setTheme(() => {
-          document.documentElement.classList.toggle('dark', false)
-          return Theme.LIGHT
-        })
-        break
-    }
+    setTheme(theme => {
+      let current = Theme.LIGHT
+      if (theme === Theme.LIGHT) {
+        current = Theme.DARK
+      }
+      if (theme === Theme.DARK) {
+        current = Theme.LIGHT
+      }
+      document.documentElement.classList.toggle('dark', current === Theme.DARK)
+      return current
+    })
   }
 
   useMount(() => {
