@@ -1,12 +1,11 @@
 import { Post } from '@/types'
 
-export function usePosts() {
+export const usePosts = () => {
   const posts: Post[] = [
     {
       title: 'hello',
-      path: '/hello',
       date: new Date().getTime().toString(),
-      desc: 'hello world'
+      path: '/hello'
     }
   ]
   return {

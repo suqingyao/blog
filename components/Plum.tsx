@@ -82,9 +82,13 @@ const Plum = () => {
     const step = (x: number, y: number, rad: number) => {
       const length = random() * len.current
       const [nx, ny] = polar2cart(x, y, length, rad)
+      // @ts-ignore
       ctx.beginPath()
+      // @ts-ignore
       ctx.moveTo(x, y)
+      // @ts-ignore
       ctx.lineTo(nx, ny)
+      // @ts-ignore
       ctx.stroke()
       const rad1 = rad + random() * r15
       const rad2 = rad - random() * r15

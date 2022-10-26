@@ -8,7 +8,7 @@ interface AppLinkProps extends LinkProps {
 const AppLink = ({ children, ...rest }: AppLinkProps) => {
   return (
     <Link {...rest}>
-      <div>{children}</div>
+      <>{children}</>
     </Link>
   )
 }
