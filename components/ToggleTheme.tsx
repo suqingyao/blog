@@ -21,13 +21,10 @@ const ToggleTheme = () => {
 }
 
 const Icon = ({ theme }: { theme: Theme }) => {
-  switch (theme) {
-    case Theme.LIGHT:
-      return <div className="i-ri-sun-line" />
-    case Theme.DARK:
-      return <div className="i-ri-moon-line" />
-    default:
-      return <div className="i-ri-sun-line" />
+  if (theme === Theme.LIGHT) {
+    return <div className="i-ri-sun-line" />
+  } else {
+    return <div className="i-ri-moon-line" />
   }
 }
 
