@@ -126,7 +126,10 @@ const Plum = () => {
 
   useMount(fn)
 
-  const mask = useMemo(() => 'radial-gradient(circle, transparent, black);', [])
+  const mask = useMemo(
+    () => '(radial-gradient(circle, transparent, black);',
+    []
+  )
   return (
     <div
       className="fixed top-0 bottom-0 left-0 right-0 pointer-events-none"

@@ -2,8 +2,6 @@ import { usePosts } from '@/utils'
 import { format } from 'date-fns'
 import React from 'react'
 import AppLink from '@/components/AppLink'
-import { GetStaticPaths, GetStaticProps } from 'next'
-import FastGlob from 'fast-glob'
 
 const PostList = () => {
   const { posts } = usePosts()
@@ -42,24 +40,3 @@ const Empty = () => {
 }
 
 export default React.memo(PostList)
-
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   const posts = await FastGlob('blog')
-
-//   return {
-//     paths: posts.map(p => ({
-//       params: {
-//         slug: p.replace(/\.mdx/, '')
-//       }
-//     })),
-//     fallback: false
-//   }
-// }
-
-// export const getStaticProps: GetStaticProps = async ({ params }) => {
-//   const post = await getFileBySlug('blog', params?.slug as string)
-
-//   return {
-//     props: { ...post }
-//   }
-// }
