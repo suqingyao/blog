@@ -1,7 +1,7 @@
+import { useMount } from 'ahooks'
 import { format } from 'date-fns'
 import { useRouter } from 'next/router'
 import React, { useRef } from 'react'
-import { useEvent, useLocation, useMount } from 'react-use'
 interface BlogProps {
   frontmatter: any
   children?: React.ReactNode
@@ -9,7 +9,6 @@ interface BlogProps {
 
 const Blog = ({ frontmatter, children }: BlogProps) => {
   const router = useRouter()
-  const route = useLocation()
   const content = useRef<HTMLDivElement | null>(null)
 
   useMount(() => {

@@ -1,6 +1,7 @@
 import { Theme } from '@/types'
-import { createContext, ReactNode, useContext } from 'react'
-import { useLocalStorage, useMount } from 'react-use'
+import { isDark } from '@/utils'
+import { createContext, ReactNode, useContext, useEffect } from 'react'
+import { useLocalStorage } from 'react-use'
 
 interface ThemeContextProps {
   theme: Theme
@@ -12,28 +13,19 @@ const ThemeContext = createContext<ThemeContextProps>({} as ThemeContextProps)
 ThemeContext.displayName = 'ThemeContext'
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme, remove] = useLocalStorage<Theme>(
-    ThemeKey,
-    Theme.LIGHT
-  )
+  const [theme, setTheme] = useLocalStorage<Theme>(ThemeKey, Theme.LIGHT)
 
   const toggleTheme = () => {
-    setTheme(theme => {
-      let current = Theme.LIGHT
-      if (theme === Theme.LIGHT) {
-        current = Theme.DARK
-      }
-      if (theme === Theme.DARK) {
-        current = Theme.LIGHT
-      }
-      document.documentElement.classList.toggle('dark', current === Theme.DARK)
-      return current
-    })
+    if (isDark(theme)) {
+      setTheme(Theme.LIGHT)
+    } else {
+      setTheme(Theme.DARK)
+    }
   }
 
-  useMount(() => {
-    document.documentElement.classList.toggle('dark', theme === Theme.DARK)
-  })
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', isDark(theme))
+  }, [theme])
 
   return (
     <ThemeContext.Provider
@@ -49,4 +41,4 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
 export const useThemeContext = () => useContext(ThemeContext)
 
-export const ThemeKey = 'theme'
+export const ThemeKey = 'blog-theme'

@@ -1,6 +1,6 @@
 import React, { MouseEvent } from 'react'
 import { useThemeContext } from '@/context/ThemeContext'
-import { Theme } from '@/types'
+import { isDark } from '@/utils'
 
 const ToggleTheme = () => {
   const { toggleTheme, theme } = useThemeContext()
@@ -15,17 +15,13 @@ const ToggleTheme = () => {
       onClick={handleToggleTheme}
       className="flex flex-col justify-center cursor-pointer text-lg"
     >
-      <Icon theme={theme} />
+      {isDark(theme) ? (
+        <div className="i-ri-sun-line" />
+      ) : (
+        <div className="i-ri-moon-line" />
+      )}
     </a>
   )
-}
-
-const Icon = ({ theme }: { theme: Theme }) => {
-  if (theme === Theme.LIGHT) {
-    return <div className="i-ri-sun-line" />
-  } else {
-    return <div className="i-ri-moon-line" />
-  }
 }
 
 export default ToggleTheme
