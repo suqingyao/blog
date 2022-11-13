@@ -31,7 +31,7 @@ const Navbar = () => {
     >
       <div className="flex items-center">
         <Link href="/">
-          <i className="i-twemoji-melting-face text-lg"> </i>
+          <i className="i-twemoji-melting-face text-lg hover:cursor-pointer"></i>
         </Link>
       </div>
       <div className="flex justify-end gap-3 align-center">

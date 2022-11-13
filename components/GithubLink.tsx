@@ -7,7 +7,7 @@ export interface GithubLinkProps {
 
 const GithubLink = ({ repo }: GithubLinkProps) => {
   return (
-    <div className="text-lg flex items-center dark:text-white">
+    <div className="text-lg flex items-center dark:text-white hover:cursor-pointer">
       <Link href={`https://github.com/${repo}`} target="_blank">
         <div className="i-ri-github-line" />
       </Link>
