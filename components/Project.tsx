@@ -23,7 +23,8 @@ const Project = () => {
         <span className="outfit flex-1">Projects</span>
         <div
           onClick={openLink}
-          className="op-50 ml-2 hover:op-100 transition-opacity cursor-pointer">
+          className="op-50 ml-2 hover:op-100 transition-opacity cursor-pointer"
+        >
           <div className="m-2 i-ri-arrow-right-up-line"></div>
         </div>
       </h2>
@@ -51,7 +52,8 @@ const ProjectItem = ({ data }: ProjectItemProps) => {
       className="px-4 py-3 rounded-md bg-gray-50 transition-colors decoration-none hover:bg-gray-100 dark:bg-gray-50/10 dark:hover:bg-gray-50/20"
       href={data.link}
       target="_blank"
-      rel="noreferrer">
+      rel="noreferrer"
+    >
       <div className="flex h-full items-center justify-center">
         <div className="flex-1">
           <div className="font-medium leading-relaxed">{data.name}</div>

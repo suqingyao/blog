@@ -7,9 +7,11 @@ interface AppLinkProps extends LinkProps {
 
 const AppLink = ({ children, ...rest }: AppLinkProps) => {
   return (
-    <Link {...rest}>
-      <>{children}</>
-    </Link>
+    <div className="hover:cursor-pointer">
+      <Link {...rest}>
+        <>{children}</>
+      </Link>
+    </div>
   )
 }
 

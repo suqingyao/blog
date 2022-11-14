@@ -22,7 +22,7 @@ async function run() {
 }
 
 const buildBlogRSS = async () => {
-  const files = await fg('blog/*.md')
+  const files = await fg('posts/*.md')
 
   const options = {
     title: 'Cully Fung',
