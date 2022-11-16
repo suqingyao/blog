@@ -1,17 +1,23 @@
-const Hero = () => {
+import config from '@/config'
+
+export default function Hero() {
+  const describes = config.desc.split('.')
+
+  const firstSentence = describes[0]
+  const firstSentenceList = firstSentence.split(',')
+  const restSentence = describes.slice(1)
   return (
     <div className={'outfit'}>
       <h1 className={'text-5xl font-bold flex flex-col gap-1'}>
-        <span>Hi, </span>
-        <span>I'm Cully Fung.</span>
+        {firstSentenceList.map((sentence, index) => (
+          <span key={index}>{sentence}</span>
+        ))}
       </h1>
       <div className="mt-6 flex flex-col gap-1 text-base">
-        <span>Front-end developer.</span>
-        <span>Currently working at Deloitte.</span>
-        <span>I like making interesting projects.</span>
+        {restSentence.map((sentence, index) => (
+          <span key={index}>{sentence}</span>
+        ))}
       </div>
     </div>
   )
 }
-
-export default Hero

@@ -7,7 +7,7 @@ interface LayoutProps {
   children?: React.ReactNode
 }
 
-const Layout = ({ children }: LayoutProps) => {
+export default function Layout({ children }: LayoutProps) {
   return (
     <div className={'flex flex-col dark:prose-invert dark:text-white relative'}>
       <Navbar />
@@ -19,5 +19,3 @@ const Layout = ({ children }: LayoutProps) => {
     </div>
   )
 }
-
-export default Layout

@@ -1,4 +1,4 @@
-const Project = () => {
+export default function Project() {
   const projectList = [
     {
       name: 'Cloud Music',
@@ -14,9 +14,10 @@ const Project = () => {
     }
   ]
 
-  const openLink = () => {
+  function openLink() {
     window.open('https://github.com/cullyfung', '_bank')
   }
+
   return (
     <>
       <h2 className="flex items-center mt-14 mb-4 font-semibold text-3xl">
@@ -46,7 +47,7 @@ interface ProjectItemProps {
   }
 }
 
-const ProjectItem = ({ data }: ProjectItemProps) => {
+function ProjectItem({ data }: ProjectItemProps) {
   return (
     <a
       className="px-4 py-3 rounded-md bg-gray-50 transition-colors decoration-none hover:bg-gray-100 dark:bg-gray-50/10 dark:hover:bg-gray-50/20"
@@ -66,5 +67,3 @@ const ProjectItem = ({ data }: ProjectItemProps) => {
     </a>
   )
 }
-
-export default Project
