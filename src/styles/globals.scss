@@ -1,0 +1,51 @@
+:root {
+  --c-bg: #ffffff;
+  --c-scroll: #d9d9d9;
+  --c-scroll-hover: #bbbbbb;
+  scrollbar-color: var(--c-scrollbar) var(--c-bg);
+}
+
+@layer components {
+  .divider {
+    @apply box-content my-12 h-px dark:bg-zinc-800 dark:border-black transition-colors;
+  }
+}
+
+html {
+  background-color: var(--c-bg);
+  font-family: 'IBM Plex Sans', sans-serif;
+  scroll-behavior: smooth;
+  transition: all 0.3s ease-in-out;
+}
+
+html.dark {
+  --c-bg: #212121;
+  --c-scroll: #333333;
+  --c-scroll-hover: #555555;
+}
+
+body {
+  font-size: 16px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  @apply text-zinc-800 bg-white dark:text-zinc-50 dark:bg-zinc-900;
+}
+
+.outfit {
+  font-family: 'Outfit', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--c-scroll);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--c-scroll-hover);
+}
+::-webkit-scrollbar-track {
+  background-color: var(--c-bg);
+}
