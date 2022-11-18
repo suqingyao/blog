@@ -1,9 +1,11 @@
-import { defineConfig } from 'unocss'
-const presetUno = require('@unocss/preset-uno').default()
-const presetIcon = require('@unocss/preset-icons').default()
-const transformerDirective = require('@unocss/transformer-directives').default()
+import {
+  defineConfig,
+  presetIcons,
+  presetUno,
+  transformerDirectives
+} from 'unocss'
 
 module.exports = defineConfig({
-  presets: [presetUno, presetIcon],
-  transformers: [transformerDirective()]
+  presets: [presetUno(), presetIcons()],
+  transformers: [transformerDirectives()]
 })

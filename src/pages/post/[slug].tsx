@@ -81,7 +81,7 @@ export interface PostProps {
   nextPost?: { link: string; title: string }
 }
 
-export default function PostLayout(props: PostProps) {
+export default function Post(props: PostProps) {
   const { t } = useTranslation('common')
   const {
     code,
