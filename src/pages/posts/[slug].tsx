@@ -17,8 +17,6 @@ import { getMDXComponent, getMDXExport } from 'mdx-bundler/client'
 import Link from 'next/link'
 import dayjs from 'dayjs'
 import HeroImage from '@/components/HeroImage'
-import { useTranslation } from 'next-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { HiArrowSmLeft, HiArrowSmRight, HiOutlineClock } from 'react-icons/hi'
 import CodeBlock from '@/components/CodeBlock'
 import Blockquote from '@/components/Blockquote'
@@ -82,7 +80,6 @@ export interface PostProps {
 }
 
 export default function Post(props: PostProps) {
-  const { t } = useTranslation('common')
   const {
     code,
     frontmatter: {
@@ -114,7 +111,7 @@ export default function Post(props: PostProps) {
         <div className="flex items-center text-sm">
           <span className="flex items-center">
             <HiOutlineClock className="mr-1 text-lg" />
-            {t('post-page.last-updated')}
+            {/* {t('post-page.last-updated')} */}
             {dayjs(updateOn || date).format('YYYY-MM-DD')} • {readingTime.text}
           </span>
         </div>
@@ -181,29 +178,19 @@ export default function Post(props: PostProps) {
   )
 }
 
-export const getStaticPaths: GetStaticPaths<{ slug: string }> = async ({
-  locales
-}) => {
+export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   const paths = await getAllPostPaths()
 
   return {
-    paths: locales!.reduce<{ params: { slug: string }; locale: string }[]>(
-      (acc, next) => [
-        ...acc,
-        ...paths.map(p => ({
-          params: { slug: getSlugByPostPath(p) },
-          locale: next
-        }))
-      ],
-      []
-    ),
-    fallback: true
+    paths: paths.map(p => ({
+      params: { slug: getSlugByPostPath(p) }
+    })),
+    fallback: false
   }
 }
 
 export const getStaticProps: GetStaticProps<any, { slug: string }> = async ({
-  params,
-  locale
+  params
 }) => {
   const { slug } = params!
   const { code, frontmatter } = await bundleMDX({
@@ -251,8 +238,7 @@ export const getStaticProps: GetStaticProps<any, { slug: string }> = async ({
         : null,
       nextPost: next
         ? { link: `/posts/${next.slug}`, title: next.frontmatter.title }
-        : null,
-      ...(await serverSideTranslations(locale!, ['common']))
+        : null
     }
   }
 }

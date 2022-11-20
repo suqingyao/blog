@@ -1,6 +1,5 @@
 const { resolve } = require('path')
 const UnoCSS = require('@unocss/webpack').default
-const { i18n } = require('./next-i18next.config')
 /** @type {import('next').NextConfig} */
 module.exports = {
   eslint: {
@@ -11,7 +10,6 @@ module.exports = {
   sassOptions: {
     includePaths: ['./src']
   },
-  i18n,
   webpack: (config, { isServer, buildId }) => {
     config.cache = false
     config.plugins.push(UnoCSS())

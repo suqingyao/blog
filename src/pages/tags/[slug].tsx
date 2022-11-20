@@ -1,6 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { getLatestPosts } from '@/utils/post'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 export default function TagLayout() {
   return <div>hello</div>
@@ -25,16 +24,14 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
 }
 
 export const getStaticProps: GetStaticProps<any, { slug: string }> = async ({
-  params,
-  locale
+  params
 }) => {
   const { slug } = params!
   const posts = await getLatestPosts({ orderBy: 'asc' })
 
   return {
     props: {
-      posts: posts.filter(post => post.frontmatter.tags?.includes(slug)),
-      ...(await serverSideTranslations(locale!, ['common']))
+      posts: posts.filter(post => post.frontmatter.tags?.includes(slug))
     }
   }
 }

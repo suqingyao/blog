@@ -1,8 +1,6 @@
-import { GetStaticProps } from 'next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Image from '@/components/Image'
 
-const NotFoundPage = () => {
+export default function NotFoundPage() {
   return (
     <div className="flex items-center justify-center mt-20">
       <Image
@@ -13,14 +11,3 @@ const NotFoundPage = () => {
     </div>
   )
 }
-export const getStaticProps: GetStaticProps<any, { slug: string }> = async ({
-  locale
-}) => {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale!, ['common']))
-    }
-  }
-}
-
-export default NotFoundPage

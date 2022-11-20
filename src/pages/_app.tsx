@@ -15,16 +15,15 @@ import BackToTop from '@/components/BackToTop'
 import { ThemeProvider } from 'next-themes'
 import { DefaultSeo } from 'next-seo'
 import { IconContext } from 'react-icons'
-import { appWithTranslation } from 'next-i18next'
 
-function App({
+export default function App({
   Component,
   pageProps
 }: AppProps & { Component: NextPageWithCustomProps }) {
   return (
     <>
       <NextNProgress color="#395" options={{ showSpinner: false }} />
-      <ThemeProvider disableTransitionOnChange forcedTheme={Component.theme}>
+      <ThemeProvider forcedTheme={Component.theme}>
         <IconContext.Provider value={{ className: 'icon' }}>
           <DefaultSeo title={config.title} description={config.desc} />
           <Head>
@@ -45,5 +44,3 @@ function App({
     </>
   )
 }
-
-export default appWithTranslation(App as any)

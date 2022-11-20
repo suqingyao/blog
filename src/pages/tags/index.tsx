@@ -4,8 +4,6 @@ import { GetStaticProps } from 'next'
 import { getLatestPosts } from '@/utils/post'
 import Link from 'next/link'
 import { animated, useTransition } from 'react-spring'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useTranslation } from 'next-i18next'
 import classNames from 'classnames'
 
 const FONT_MIN = 12
@@ -23,7 +21,6 @@ export interface TagsProps {
 }
 
 export default function Tags({ tags }: TagsProps) {
-  const { t } = useTranslation('common')
   const transitions = useTransition(tags, {
     from: { scale: 0.5, opacity: 0 },
     enter: { scale: 1, opacity: 1 },
@@ -50,10 +47,10 @@ export default function Tags({ tags }: TagsProps) {
           'relative font-medium font-serif text-5xl mt-20 sm:mt-40'
         )}
       >
-        {t('tags-page.title')}
+        Tags
       </h2>
       <p className="font-medium text-sm m-10 sm:m-14">
-        {t('tags-page.desc', { count: tags.length })}
+        {tags.length} tags in total
       </p>
       <div className="flex items-center justify-center flex-wrap gap-7">
         {transitions((tagStyles, { tagName, postsNum }) => (
@@ -102,8 +99,7 @@ export const getStaticProps: GetStaticProps<any, { slug: string }> = async ({
 
   return {
     props: {
-      tags: Object.values(tags),
-      ...(await serverSideTranslations(locale!, ['common']))
+      tags: Object.values(tags)
     }
   }
 }

@@ -2,8 +2,6 @@ import React, { PropsWithChildren } from 'react'
 import style from './styles.module.scss'
 import classNames from 'classnames'
 import Link from 'next/link'
-import { GetStaticProps } from 'next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const Tag: React.FC<PropsWithChildren> = props => {
   return (
@@ -42,14 +40,4 @@ export default function About() {
       </ul>
     </div>
   )
-}
-
-export const getStaticProps: GetStaticProps<any, { slug: string }> = async ({
-  locale
-}) => {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale!, ['common']))
-    }
-  }
 }

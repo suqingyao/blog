@@ -3,7 +3,6 @@ import Hero from '@/components/Hero'
 import Projects from '@/components/Projects'
 import Posts from '@/components/Posts'
 import { getLatestPostsTop5 } from '@/utils/post'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 export function Home({ posts }: { posts: Post[] }) {
   return (
@@ -15,13 +14,12 @@ export function Home({ posts }: { posts: Post[] }) {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async () => {
   const posts = await getLatestPostsTop5()
 
   return {
     props: {
-      posts,
-      ...(await serverSideTranslations(locale!, ['common']))
+      posts
     }
   }
 }
