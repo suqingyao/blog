@@ -29,7 +29,7 @@ export default function Posts({ posts }: PostsProps) {
 function PostCard({ post }: { post: Post }) {
   return (
     <AppLink
-      href={`/post/${post.slug}`}
+      href={`/posts/${post.slug}`}
       className="flex px-3 py-2 mt-2 mr-2 rounded-md transition-colors decoration-none hover:bg-gray-100"
     >
       <div className="flex-1">{post.frontmatter.title}</div>

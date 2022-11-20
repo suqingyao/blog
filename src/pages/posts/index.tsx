@@ -22,7 +22,7 @@ function Posts({ posts }: PostsProps) {
           )}
           <article key={idx} className="my-8">
             <h3 className="text-lg sm:text-xl">
-              <Link href={`/post/${slug}`}>
+              <Link href={`/posts/${slug}`}>
                 <a className="hover:text-emerald">{frontmatter.title}</a>
               </Link>
             </h3>

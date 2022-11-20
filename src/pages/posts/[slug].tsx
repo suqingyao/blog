@@ -247,10 +247,10 @@ export const getStaticProps: GetStaticProps<any, { slug: string }> = async ({
       code,
       frontmatter,
       prevPost: prev
-        ? { link: `/post/${prev.slug}`, title: prev.frontmatter.title }
+        ? { link: `/posts/${prev.slug}`, title: prev.frontmatter.title }
         : null,
       nextPost: next
-        ? { link: `/post/${next.slug}`, title: next.frontmatter.title }
+        ? { link: `/posts/${next.slug}`, title: next.frontmatter.title }
         : null,
       ...(await serverSideTranslations(locale!, ['common']))
     }
