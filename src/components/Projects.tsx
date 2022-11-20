@@ -17,18 +17,18 @@ export default function Projects() {
       </h2>
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
         {projects.map((project, index) => (
-          <Project key={index} project={project} />
+          <Card key={index} project={project} />
         ))}
       </div>
     </>
   )
 }
 
-function Project({ project }: { project: Project }) {
+function Card({ project }: { project: Project }) {
   return (
     <AppLink
       href={project.repo}
-      className="px-4 py-3 rounded-md bg-gray-50 transition-colors decoration-none hover:bg-gray-100"
+      className="px-4 py-3 rounded-md bg-gray-50 transition-colors decoration-none hover:bg-gray-100 dark:bg-gray-50/10 dark:hover:bg-gray-50/20"
     >
       <div className="flex h-full items-center justify-center">
         <div className="flex-1">

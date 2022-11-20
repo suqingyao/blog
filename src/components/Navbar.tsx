@@ -2,9 +2,11 @@ import React from 'react'
 import GithubLink from '@/components/GithubLink'
 import DarkModeToggle from './DarkModeToggle'
 import AppLink from './AppLink'
+import { useRouter } from 'next/router'
+import classNames from 'classnames'
 
 interface LinkProps {
-  link: string
+  url: string
   title: string
   icon?: string
 }
@@ -12,16 +14,18 @@ interface LinkProps {
 export default function Navbar() {
   const linkList: LinkProps[] = [
     {
-      link: '/',
+      url: '/',
       title: 'Home',
       icon: 'i-ri:home-heart-line md:hidden'
     },
     {
-      link: '/posts',
+      url: '/posts',
       title: 'Posts',
       icon: 'i-ri-article-line md:hidden'
     }
   ]
+
+  const router = useRouter()
 
   return (
     <header className="sticky top-0 text-center backdrop-blur-sm">
@@ -30,8 +34,11 @@ export default function Navbar() {
           {linkList.map(link => (
             <AppLink
               key={link.title}
-              href={link.link}
-              className="flex flex-col justify-center"
+              href={link.url}
+              className={classNames(
+                { 'text-emerald': link.url === router.route },
+                'flex flex-col justify-center'
+              )}
             >
               <span className="lt-md:hidden">{link.title}</span>
               <i className={link.icon} />
