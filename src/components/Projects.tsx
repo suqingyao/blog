@@ -1,21 +1,19 @@
 import config from '@/config'
+import AppLink from './AppLink'
 
 export default function Projects() {
   const { projects, github } = config
-  function openLink() {
-    window.open(github, '_bank')
-  }
 
   return (
     <>
       <h2 className="flex items-center mt-14 mb-4 font-semibold text-3xl">
         <span className="outfit flex-1">Projects</span>
-        <div
-          onClick={openLink}
+        <AppLink
+          href={github}
           className="op-50 ml-2 hover:op-100 transition-opacity cursor-pointer"
         >
           <div className="m-2 i-ri-arrow-right-up-line" />
-        </div>
+        </AppLink>
       </h2>
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
         {projects.map((project, index) => (
@@ -28,11 +26,9 @@ export default function Projects() {
 
 function Project({ project }: { project: Project }) {
   return (
-    <a
-      className="px-4 py-3 rounded-md bg-gray-50 transition-colors decoration-none hover:bg-gray-100 dark:bg-gray-50/10 dark:hover:bg-gray-50/20"
+    <AppLink
       href={project.repo}
-      target="_blank"
-      rel="noreferrer"
+      className="px-4 py-3 rounded-md bg-gray-50 transition-colors decoration-none hover:bg-gray-100"
     >
       <div className="flex h-full items-center justify-center">
         <div className="flex-1">
@@ -43,6 +39,6 @@ function Project({ project }: { project: Project }) {
           <div className={project.icon} />
         </div>
       </div>
-    </a>
+    </AppLink>
   )
 }

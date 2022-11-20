@@ -106,7 +106,7 @@ export default function Post(props: PostProps) {
 
   return (
     <div className="container break-all">
-      <h1 className="mt-14 sm:mt-16 text-2xl sm:text-4xl text-black dark:text-white !leading-snug tracking-tight font-medium">
+      <h1 className="mt-14 sm:mt-16 text-2xl sm:text-4xl !leading-snug tracking-tight font-medium">
         {title}
       </h1>
       {/* 最后更新时间 */}
@@ -115,7 +115,7 @@ export default function Post(props: PostProps) {
           <span className="flex items-center">
             <HiOutlineClock className="mr-1 text-lg" />
             {t('post-page.last-updated')}
-            {dayjs(updateOn || date).format('LL')} • {readingTime.text}
+            {dayjs(updateOn || date).format('YYYY-MM-DD')} • {readingTime.text}
           </span>
         </div>
       </div>

@@ -10,7 +10,7 @@ export interface PostsProps {
 
 function Posts({ posts }: PostsProps) {
   return (
-    <div className="flex-1">
+    <div className="max-w-[80ch] w-full">
       {posts.map(({ frontmatter, slug }, idx) => (
         <div key={idx}>
           {(idx === 0 ||
@@ -22,12 +22,12 @@ function Posts({ posts }: PostsProps) {
           )}
           <article key={idx} className="my-8">
             <h3 className="text-lg sm:text-xl">
-              <Link href={`/posts/${slug}`}>
-                <a className="hover:text-primary">{frontmatter.title}</a>
+              <Link href={`/post/${slug}`}>
+                <a className="hover:text-emerald">{frontmatter.title}</a>
               </Link>
             </h3>
             <span className="font-medium inline-block text-sm mt-2 opacity-50">
-              {dayjs(frontmatter.date).format('LL')}
+              {dayjs(frontmatter.date).format('YYYY-MM-DD')}
             </span>
           </article>
         </div>
