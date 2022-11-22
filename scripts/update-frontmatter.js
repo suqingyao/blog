@@ -1,8 +1,8 @@
-const fs = require('fs').promises
+const fs = require('fs-extra')
 const matter = require('gray-matter')
 const dayjs = require('dayjs')
 
-const updateFrontmatter = async () => {
+const updateFrontmatter = () => {
   const [, , ...mdFilePaths] = process.argv
 
   for (const path of mdFilePaths) {
@@ -13,7 +13,7 @@ const updateFrontmatter = async () => {
       updatedOn: dayjs().format('YYYY-MM-DD HH:mm')
     }
     const updatedFileContent = matter.stringify(file.content, newFrontmatter)
-    await fs.writeFile(path, updatedFileContent)
+    fs.outputFileSync(path, updatedFileContent)
   }
 }
 
