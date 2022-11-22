@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier --write './src/**/*.{js,jsx,ts,tsx,json}'",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "new:post": "node ./scripts/new-post"
   },
   "lint-staged": {
     "*.{js,jsx,tsx,ts}": [
@@ -68,6 +69,7 @@
     "hastscript": "^7.1.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
+    "pangu": "^4.0.7",
     "prettier": "^2.7.1",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.1.0",

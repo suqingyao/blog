@@ -1,7 +1,7 @@
-import fs from 'fs-extra'
-import path from 'path'
-import dayjs from 'dayjs'
-import pangu from 'pangu'
+const fs = require('fs-extra')
+const path = require('path')
+const dayjs = require('dayjs')
+const pangu = require('pangu')
 
 // npm run new:post name [tag1] [tag2] ...
 const createPost = async () => {
