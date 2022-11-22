@@ -9,7 +9,7 @@ import {
   throttleTime
 } from 'rxjs'
 
-const BackToTop = () => {
+export default function BackToTop() {
   const [visible, setVisible] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
@@ -63,5 +63,3 @@ const BackToTop = () => {
       )
   )
 }
-
-export default BackToTop

@@ -1,7 +1,5 @@
 import React from 'react'
 
-const Image: React.FC<any> = props => {
+export default function Image(props: any) {
   return <img alt="" loading="lazy" {...props} />
 }
-
-export default Image

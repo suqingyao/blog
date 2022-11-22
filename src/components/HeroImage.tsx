@@ -8,7 +8,7 @@ export interface HeroImage extends NativeProps {
   aspectRatio?: string // 长 / 宽
 }
 
-const HeroImage: React.FC<HeroImage> = props => {
+export default function HeroImage(props: HeroImage) {
   const { src, aspectRatio = '16 / 9' } = props
   const { dataUrl, status } = useImage(src)
 
@@ -47,5 +47,3 @@ const HeroImage: React.FC<HeroImage> = props => {
     </div>
   )
 }
-
-export default HeroImage
