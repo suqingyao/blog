@@ -70,6 +70,7 @@
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "pangu": "^4.0.7",
+    "pathe": "^1.0.0",
     "prettier": "^2.7.1",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.1.0",

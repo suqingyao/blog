@@ -1,5 +1,5 @@
-import { promises as fs } from 'fs'
-import path from 'path'
+import { readFileSync } from 'fs-extra'
+import { resolve } from 'pathe'
 import glob from 'fast-glob'
 import matter from 'gray-matter'
 import { orderBy, take } from 'lodash'
@@ -44,11 +44,10 @@ export function getSlugByPostPath(postPath: string) {
   return postPath.replace(/^posts\/|\.mdx$/g, '')
 }
 
-export async function getPostFrontmatterBySlug(slug: string) {
-  const rawMdx = await fs.readFile(
-    path.resolve(process.cwd(), `posts/${slug}.mdx`),
-    'utf8'
-  )
+export function getPostFrontmatterBySlug(slug: string) {
+  const rawMdx = readFileSync(resolve(process.cwd(), `posts/${slug}.mdx`), {
+    encoding: 'utf8'
+  })
   return matter(rawMdx).data as Promise<PostFrontmatter>
 }
 
