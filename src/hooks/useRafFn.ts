@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 export const useRafFn = (fn: Fn) => {
-  const isActive = React.useRef(false)
+  const isActive = useRef(false)
   let rafId: null | number = null
 
   const loop = () => {

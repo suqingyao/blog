@@ -1,6 +1,6 @@
 import React, { useRef, useState, PropsWithChildren, useCallback } from 'react'
 import { NativeProps, withNativeProps } from '@/utils/native-props'
-import useUnmount from '@/hooks/useUnmount'
+import { useUnmount } from 'react-use'
 
 interface GeneralObserverProps extends NativeProps {
   onEnter?: (id?: string) => void
