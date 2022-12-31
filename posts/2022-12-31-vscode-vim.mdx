@@ -1,0 +1,62 @@
+---
+title: vscode-vim
+date: '2022-12-31 15:49:55'
+tags:
+  - vscode
+  - vim
+---
+
+# vscode 配置 vim
+
+## 安装 vim 插件
+
+插件市场直接搜索`Vim`插件安装即可 \
+Mac OS 还需要先进行额外配置
+
+```sh
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+```
+
+配置`setting.json`
+
+```json
+{
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "d"],
+      "after": ["d", "d"]
+    },
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["lineBreakInsert"],
+      "silent": true
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  }
+}
+```
+
+## Vim 模式
+
+vim 一共有 4 种模式，分别为 `普通模式` `插入模式` `视图模式`
+
+1. 普通模式(`--NORMAL--`) -> 插入模式(`--INSERT--`)
