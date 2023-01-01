@@ -6,15 +6,17 @@ tags:
   - vim
 ---
 
-# vscode 配置 vim
+## vscode 配置 vim
 
-## 安装 vim 插件
+### 安装及配置 vim 插件
 
-插件市场直接搜索`Vim`插件安装即可 \
-Mac OS 还需要先进行额外配置
+![20230101015337](https://cully-blog.oss-cn-chengdu.aliyuncs.com/20230101015337.png)
+
+插件市场直接搜索`vim`插件安装即可 \
+mac os 还需要先进行额外配置
 
 ```sh
-defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+defaults write com.microsoft.vscode applepressandholdenabled -bool false
 ```
 
 配置`setting.json`
@@ -23,40 +25,93 @@ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 {
   "vim.easymotion": true,
   "vim.incsearch": true,
-  "vim.useSystemClipboard": true,
-  "vim.useCtrlKeys": true,
+  "vim.usesystemclipboard": true,
+  "vim.usectrlkeys": true,
   "vim.hlsearch": true,
-  "vim.insertModeKeyBindings": [
+  "vim.insertmodekeybindings": [
     {
       "before": ["j", "j"],
-      "after": ["<Esc>"]
+      "after": ["<esc>"]
     }
   ],
-  "vim.normalModeKeyBindingsNonRecursive": [
+  "vim.normalmodekeybindingsnonrecursive": [
     {
       "before": ["<leader>", "d"],
       "after": ["d", "d"]
     },
     {
-      "before": ["<C-n>"],
+      "before": ["<c-n>"],
       "commands": [":nohl"]
     },
     {
-      "before": ["K"],
-      "commands": ["lineBreakInsert"],
+      "before": ["k"],
+      "commands": ["linebreakinsert"],
       "silent": true
     }
   ],
   "vim.leader": "<space>",
-  "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-f>": false
+  "vim.handlekeys": {
+    "<c-a>": false,
+    "<c-f>": false
   }
 }
 ```
 
-## Vim 模式
+### vim 模式
 
-vim 一共有 4 种模式，分别为 `普通模式` `插入模式` `视图模式`
+vim 一共有 4 种模式，分别为 `普通模式`、`插入模式`、`可视模式`、`命令模式`
 
-1. 普通模式(`--NORMAL--`) -> 插入模式(`--INSERT--`)
+1. 普通模式 -> 插入模式
+   ![20230101020212](https://cully-blog.oss-cn-chengdu.aliyuncs.com/20230101020212.png)
+   ![20230101021247](https://cully-blog.oss-cn-chengdu.aliyuncs.com/20230101021247.png)
+2. 普通模式 -> 可视模式
+   ![20230101021736](https://cully-blog.oss-cn-chengdu.aliyuncs.com/20230101021736.png)
+3. 普通模式 -> 命令模式
+   ![20230101022023](https://cully-blog.oss-cn-chengdu.aliyuncs.com/20230101022023.png)
+
+### 光标移动
+
+| 快捷键    | 作用                                         |
+| --------- | -------------------------------------------- |
+| h         | 左移                                         |
+| j         | 下移                                         |
+| k         | 上移                                         |
+| l         | 右移                                         |
+| w         | 跳到单词开头                                 |
+| b         | 跳到本单词或上一个单词开头                   |
+| e         | 跳到本单词或下一个单词结尾                   |
+| ge        | 跳到上一单词结                               |
+| 0         | 跳到行首                                     |
+| ^         | 跳到从行首开始第一个非空字符                 |
+| $         | 跳到行尾                                     |
+| gg        | 跳到第一行                                   |
+| g         | 跳到最后一行                                 |
+| `f{char}` | 光标跳到下一个`{char}`所在位置               |
+| `f{char}` | 反向移动到上一个`{char}`所在位置             |
+| `t{char}` | 光标跳到下个`{char}`的前一个字符的位置       |
+| `T{char}` | 光标反向移动到上个`{char}`的后一个字符的位置 |
+| ;         | 重复上次的字符查找操作                       |
+| ,         | 反向查找上次的查找命令                       |
+
+### 动作 motion
+
+![20230101150405](https://cully-blog.oss-cn-chengdu.aliyuncs.com/20230101150405.png)
+![20230101150528](https://cully-blog.oss-cn-chengdu.aliyuncs.com/20230101150528.png)
+
+### 操作符 operator
+
+![20230101150707](https://cully-blog.oss-cn-chengdu.aliyuncs.com/20230101150707.png)
+
+### 大小写转换
+
+![20230101163847](https://cully-blog.oss-cn-chengdu.aliyuncs.com/20230101163847.png)
+
+### Tips
+
+- `cmd + 0` 从编辑区切换到文件目录区
+- `l` 从文件目录区切换到编辑区
+- `space` 目录区中打开文件或文件夹
+- `gd` 跳转到函数定义 `control + o` 回到函数
+- `gt` 切换标签 `2gt` 切换到第二个标签页
+- `cmd + \` 在右侧再次打开窗口
+- `cmd + 数字` 在多窗口之间切换
