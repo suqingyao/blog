@@ -28,7 +28,7 @@ export default function Navbar() {
   const router = useRouter()
 
   return (
-    <header className="sticky top-0 text-center backdrop-blur-sm">
+    <header className="sticky top-0 text-center backdrop-blur-sm z-9999">
       <div className="flex justify-end gap-3 max-w-[80ch] mx-auto py-5">
         <div className="flex justify-end items-center gap-3">
           {linkList.map(link => (

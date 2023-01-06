@@ -1,15 +1,15 @@
 {
   "name": "blog",
   "version": "0.1.0",
-  "private": true,
+  "author": "cullyfung",
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "dev": "next dev",
     "lint": "next lint",
-    "prettier": "prettier --write './src/**/*.{js,jsx,ts,tsx,json}'",
-    "prepare": "husky install",
     "new:post": "node ./scripts/new-post",
+    "prepare": "husky install",
+    "prettier": "prettier --write './src/**/*.{js,jsx,ts,tsx,json}'",
+    "start": "next start",
     "update:deps": "npx taze -w"
   },
   "lint-staged": {

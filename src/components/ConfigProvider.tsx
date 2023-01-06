@@ -1,4 +1,4 @@
-import React, { createContext, PropsWithChildren, useState } from 'react'
+import { createContext, FC, PropsWithChildren, useState } from 'react'
 
 export interface ConfigProviderProps {}
 
@@ -9,9 +9,7 @@ export interface ConfigContext {
 
 export const ConfigContext = createContext({} as ConfigContext)
 
-const ConfigProvider: React.FC<
-  PropsWithChildren<ConfigProviderProps>
-> = props => {
+const ConfigProvider: FC<PropsWithChildren<ConfigProviderProps>> = props => {
   const { children } = props
   const [soundEnabled, setSoundEnabled] = useState(true)
 

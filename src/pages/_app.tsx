@@ -23,7 +23,7 @@ export default function App({
   return (
     <>
       <NextNProgress color="#395" options={{ showSpinner: false }} />
-      <ThemeProvider forcedTheme={Component.theme}>
+      <ThemeProvider attribute="class">
         <IconContext.Provider value={{ className: 'icon' }}>
           <DefaultSeo title={config.title} description={config.desc} />
           <Head>
