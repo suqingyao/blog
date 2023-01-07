@@ -1,4 +1,4 @@
-import React, { useRef, useState, PropsWithChildren, useCallback } from 'react'
+import { useRef, useState, PropsWithChildren, useCallback, FC } from 'react'
 import { NativeProps, withNativeProps } from '@/utils/native-props'
 import { useUnmount } from 'react-use'
 
@@ -6,7 +6,7 @@ interface GeneralObserverProps extends NativeProps {
   onEnter?: (id?: string) => void
 }
 
-export const GeneralObserver: React.FC<
+export const GeneralObserver: FC<
   PropsWithChildren<GeneralObserverProps>
 > = props => {
   const { children, onEnter } = props
@@ -34,7 +34,7 @@ export const GeneralObserver: React.FC<
 
   return withNativeProps(
     props,
-    <div ref={ref} className="relative relative" style={{ width: '100%' }}>
+    <div ref={ref} className="relative" style={{ width: '100%' }}>
       {isChildVisible && children}
     </div>
   )

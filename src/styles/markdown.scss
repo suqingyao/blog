@@ -164,7 +164,7 @@ h6:focus .header-anchor {
 }
 
 // DarkMode
-[data-theme='dark'] .markdown-body {
+[class='dark'] .markdown-body {
   .anchor {
     @apply text-zinc-50;
   }

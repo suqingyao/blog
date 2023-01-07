@@ -3,7 +3,7 @@
 // 所以会水合错误，可以参考这篇文章 https://www.joshwcomeau.com/react/the-perils-of-rehydration/，
 // 而通过 css 设置不需要我们访问浏览器 api，就不会产生这个问题
 
-html[data-theme='light'] {
+html[class='light'] {
   pre {
     .token-line {
       color: #5e6687;
@@ -105,9 +105,9 @@ html[data-theme='light'] {
   }
 }
 
-html[data-theme='dark'],
+html[class='dark'],
 // CodePlayground 始终使用黑暗模式主题
-html[data-theme='light'] .code-playground {
+html[class='light'] .code-playground {
   pre {
     .token-line {
       color: #fff;
