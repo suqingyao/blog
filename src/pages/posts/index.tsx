@@ -1,4 +1,4 @@
-import React from 'react'
+import { memo } from 'react'
 import { GetStaticProps } from 'next'
 import dayjs from 'dayjs'
 import Link from 'next/link'
@@ -16,9 +16,11 @@ function Posts({ posts }: PostsProps) {
           {(idx === 0 ||
             dayjs(posts[idx - 1].frontmatter.date).year() !==
               dayjs(frontmatter.date).year()) && (
-            <h2 className="font-medium text-2xl sm:text-3xl before:content-['#_'] before:text-primary">
-              {dayjs(frontmatter.date).year()}
-            </h2>
+            <div className="relative pointer-events-none h20">
+              <span className="absolute font-bold top-6rem left--3rem text-8em opacity-10">
+                {dayjs(frontmatter.date).year()}
+              </span>
+            </div>
           )}
           <article key={idx} className="my-8">
             <h3 className="text-lg sm:text-xl">
@@ -45,4 +47,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export default React.memo(Posts)
+export default memo(Posts)
