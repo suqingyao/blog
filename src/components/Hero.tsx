@@ -7,7 +7,7 @@ export default function Hero() {
         <span>Front-end developer.</span>
       </h1>
       <div className="mt-6 flex flex-col gap-1 text-base">
-        <span>Currently working at Chongqin. </span>
+        <span>Currently working in Chongqing. </span>
         <span>I love coding.</span>
       </div>
     </div>
