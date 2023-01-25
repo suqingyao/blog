@@ -1,4 +1,5 @@
 import config from '@/config'
+import classNames from 'classnames'
 import AppLink from './AppLink'
 
 export default function Projects() {
@@ -30,12 +31,12 @@ function Card({ project }: { project: Project }) {
       href={project.repo}
       className="px-4 py-3 rounded-md bg-gray-50 transition-colors decoration-none hover:bg-gray-100 dark:bg-gray-50/10 dark:hover:bg-gray-50/20"
     >
-      <div className="flex h-full items-center justify-center">
+      <div className="flex items-center justify-center">
         <div className="flex-1">
           <div className="font-medium leading-relaxed">{project.title}</div>
           <div className="op-50 font-normal text-sm">{project.desc}</div>
         </div>
-        <div className="ml-4 text-4xl op-80 flex">
+        <div className="text-4xl op-80">
           <div className={project.icon} />
         </div>
       </div>

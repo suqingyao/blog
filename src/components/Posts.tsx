@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import dayjs from 'dayjs'
 import AppLink from './AppLink'
 
@@ -17,7 +16,7 @@ export default function Posts({ posts }: PostsProps) {
           </div>
         </AppLink>
       </h2>
-      <div className="grid grid-cols-1 -mx-2">
+      <div className="flex flex-col gap-2">
         {posts.map(post => (
           <Card key={post.path} post={post} />
         ))}
@@ -30,11 +29,13 @@ function Card({ post }: { post: Post }) {
   return (
     <AppLink
       href={`/posts/${post.slug}`}
-      className="flex px-3 py-2 mt-2 mr-2 rounded-md transition-colors decoration-none hover:bg-gray-100 dark:hover:bg-gray-50/10"
+      className="px-3 py-3 rounded-md transition-colors decoration-none hover:bg-gray-100 dark:hover:bg-gray-50/10"
     >
-      <div className="flex-1">{post.frontmatter.title}</div>
-      <div className="hidden sm:block op-40 font-normal">
-        {dayjs(post.frontmatter.date).format('YYYY-MM-DD')}
+      <div className="flex justify-between items-center">
+        <div className="flex-1">{post.frontmatter.title}</div>
+        <div className="hidden sm:block op-40 font-normal">
+          {dayjs(post.frontmatter.date).format('YYYY-MM-DD')}
+        </div>
       </div>
     </AppLink>
   )
