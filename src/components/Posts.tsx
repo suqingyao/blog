@@ -1,3 +1,4 @@
+import { animated, useTrail } from '@react-spring/web'
 import dayjs from 'dayjs'
 import AppLink from './AppLink'
 
@@ -6,6 +7,10 @@ interface PostsProps {
 }
 
 export default function Posts({ posts }: PostsProps) {
+  const trail = useTrail(posts.length, {
+    from: { opacity: 0, x: 50 },
+    to: { opacity: 1, x: 0 }
+  })
   return (
     <>
       <h2 className="flex items-center mt-14 mb-4 font-semibold text-3xl">
@@ -17,8 +22,13 @@ export default function Posts({ posts }: PostsProps) {
         </AppLink>
       </h2>
       <div className="flex flex-col gap-2">
-        {posts.map(post => (
-          <Card key={post.path} post={post} />
+        {trail.map(({ x, ...rest }, index) => (
+          <animated.div
+            key={posts[index]['path']}
+            style={{ ...rest, transform: x.to(x => `translate3d(${x}px,0,0)`) }}
+          >
+            <Card post={posts[index]} />
+          </animated.div>
         ))}
       </div>
     </>
