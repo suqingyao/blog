@@ -15,24 +15,26 @@ import TableOfContents, {
 } from '@/components/TableOfContents'
 import { getMDXComponent, getMDXExport } from 'mdx-bundler/client'
 import dayjs from 'dayjs'
-import HeroImage from '@/components/HeroImage'
-import CodeBlock from '@/components/CodeBlock'
-import Blockquote from '@/components/Blockquote'
-import Image from '@/components/Image'
-import DarkModeToggle from '@/components/DarkModeToggle'
-import UnorderedList from '@/components/lists/UnorderedList'
-import OrderedList from '@/components/lists/OrderedList'
-import ListItem from '@/components/lists/ListItem'
-import { YouTube } from '@/components/embeds/YouTube'
-import { StackBlitz } from '@/components/embeds/StackBlitz'
-import { CodeSandbox } from '@/components/embeds/CodeSandbox'
-import { CodePen } from '@/components/embeds/CodePen'
+import {
+  HeroImage,
+  CodeBlock,
+  Blockquote,
+  Image,
+  DarkModeToggle,
+  UnorderedList,
+  OrderedList,
+  ListItem,
+  YouTube,
+  StackBlitz,
+  CodeSandbox,
+  CodePen,
+  AppLink
+} from '@/components'
 import {
   getAdjacentPosts,
   getAllPostPaths,
   getSlugByPostPath
 } from '@/utils/post'
-import AppLink from '@/components/AppLink'
 
 const components = {
   code: CodeBlock,

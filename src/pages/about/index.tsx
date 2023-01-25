@@ -1,9 +1,9 @@
-import React, { PropsWithChildren } from 'react'
+import { FC, PropsWithChildren } from 'react'
 import style from './styles.module.scss'
 import classNames from 'classnames'
-import AppLink from '@/components/AppLink'
+import { AppLink } from '@/components'
 
-const Tag: React.FC<PropsWithChildren> = props => {
+const Tag: FC<PropsWithChildren> = props => {
   return (
     <span className="inline-block rounded border bg-amber-500/10 text-amber-900 border-amber-500/20 dark:bg-amber-500/10 dark:text-amber-500 px-2 py-1 text-xs leading-none">
       {props.children}

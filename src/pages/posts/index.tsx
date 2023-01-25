@@ -2,7 +2,7 @@ import { memo } from 'react'
 import { GetStaticProps } from 'next'
 import dayjs from 'dayjs'
 import { getLatestPosts } from '@/utils/post'
-import AppLink from '@/components/AppLink'
+import { AppLink } from '@/components'
 
 export interface PostsProps {
   posts: Post[]

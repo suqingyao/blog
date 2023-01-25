@@ -1,7 +1,5 @@
 import type { GetStaticProps } from 'next'
-import Hero from '@/components/Hero'
-import Projects from '@/components/Projects'
-import Posts from '@/components/Posts'
+import { Hero, Projects, Posts } from '@/components'
 import { getLatestPostsTop5 } from '@/utils/post'
 
 export function Home({ posts }: { posts: Post[] }) {

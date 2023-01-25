@@ -4,7 +4,7 @@ import { GetStaticProps } from 'next'
 import { getLatestPosts } from '@/utils/post'
 import { animated, useTransition } from '@react-spring/web'
 import classNames from 'classnames'
-import AppLink from '@/components/AppLink'
+import { AppLink } from '@/components'
 
 const FONT_MIN = 12
 const FONT_MAX = 48

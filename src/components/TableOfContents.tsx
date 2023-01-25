@@ -45,15 +45,15 @@ export default function TableOfContents(props: TableOfContentsProps) {
             key={heading.id}
             style={{ paddingLeft: `${heading.level - 2}em` }}
             className={classNames(
-              'text-[13px] border-l-2 border-transparent hover:text-zinc-800 transition-colors',
+              'text-sm border-l-2 border-transparent hover:text-primary transition-colors',
               {
-                '!text-primary border-primary': activeId === heading.id
+                'text-primary border-primary': activeId === heading.id
               }
             )}
           >
             <a
               href={`#${heading.id}`}
-              className="inline-block max-w-full my-1 px-6 tracking-wide truncate align-middle"
+              className="block max-w-full my-1 px-6 tracking-wide truncate align-middle"
             >
               {heading.text}
             </a>

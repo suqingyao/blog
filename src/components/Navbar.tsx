@@ -1,5 +1,5 @@
 import React from 'react'
-import GithubLink from '@/components/GithubLink'
+import { GithubLink } from '@/components'
 import DarkModeToggle from './DarkModeToggle'
 import AppLink from './AppLink'
 import { useRouter } from 'next/router'
@@ -22,6 +22,11 @@ export default function Navbar() {
       url: '/posts',
       title: 'Posts',
       icon: 'i-ri-article-line md:hidden'
+    },
+    {
+      url: '/about',
+      title: 'About',
+      icon: 'i-ri:game-fill md:hidden'
     }
   ]
 
