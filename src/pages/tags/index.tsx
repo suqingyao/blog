@@ -2,9 +2,9 @@ import React, { useMemo } from 'react'
 import styles from './styles.module.scss'
 import { GetStaticProps } from 'next'
 import { getLatestPosts } from '@/utils/post'
-import Link from 'next/link'
-import { animated, useTransition } from 'react-spring'
+import { animated, useTransition } from '@react-spring/web'
 import classNames from 'classnames'
+import AppLink from '@/components/AppLink'
 
 const FONT_MIN = 12
 const FONT_MAX = 48
@@ -55,7 +55,7 @@ export default function Tags({ tags }: TagsProps) {
       <div className="flex items-center justify-center flex-wrap gap-7">
         {transitions((tagStyles, { tagName, postsNum }) => (
           <animated.div key={tagName} style={tagStyles}>
-            <Link href={`/tags/${tagName}`}>
+            <AppLink href={`/tags/${tagName}`}>
               <a
                 className="border-b border-current transition hover:!opacity-100 hover:text-[#ff7464]"
                 style={{
@@ -76,7 +76,7 @@ export default function Tags({ tags }: TagsProps) {
               >
                 {tagName}
               </a>
-            </Link>
+            </AppLink>
           </animated.div>
         ))}
       </div>

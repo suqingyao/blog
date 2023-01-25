@@ -1,6 +1,6 @@
 import config from '@/config'
 import Link from 'next/link'
-import React from 'react'
+import { memo } from 'react'
 
 function GithubLink() {
   const repo = config.name
@@ -14,4 +14,4 @@ function GithubLink() {
   )
 }
 
-export default React.memo(GithubLink)
+export default memo(GithubLink)

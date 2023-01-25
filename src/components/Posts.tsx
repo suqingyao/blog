@@ -11,11 +11,11 @@ export default function Posts({ posts }: PostsProps) {
     <>
       <h2 className="flex items-center mt-14 mb-4 font-semibold text-3xl">
         <span className="flex-1">Latest Posts</span>
-        <Link href="/posts">
+        <AppLink href="/posts">
           <div className="op-50 ml-2 hover:op-100 transition-opacity cursor-pointer">
             <div className="m-2 i-ri-arrow-right-up-line"></div>
           </div>
-        </Link>
+        </AppLink>
       </h2>
       <div className="grid grid-cols-1 -mx-2">
         {posts.map(post => (

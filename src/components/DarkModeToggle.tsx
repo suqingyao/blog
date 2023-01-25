@@ -4,7 +4,7 @@ import {
   useSpring,
   useTransition,
   config as builtinConfig
-} from 'react-spring'
+} from '@react-spring/web'
 import { useTheme } from 'next-themes'
 import { withNoSSR } from '@/utils/with-no-ssr'
 import useSound from '@/hooks/useSound'

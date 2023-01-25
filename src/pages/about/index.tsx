@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react'
 import style from './styles.module.scss'
 import classNames from 'classnames'
-import Link from 'next/link'
+import AppLink from '@/components/AppLink'
 
 const Tag: React.FC<PropsWithChildren> = props => {
   return (
@@ -29,13 +29,15 @@ export default function About() {
       <ul>
         <li>
           Email -{' '}
-          <Link href="mailto:cullyfung@gmail.com">cullyfung@gmail.com</Link>
+          <AppLink href="mailto:cullyfung@gmail.com">
+            cullyfung@gmail.com
+          </AppLink>
         </li>
         <li>
           Github -{' '}
-          <Link href="https://github.com/cullyfung">
+          <AppLink href="https://github.com/cullyfung">
             https://github.com/cullyfung
-          </Link>
+          </AppLink>
         </li>
       </ul>
     </div>

@@ -14,7 +14,6 @@ import TableOfContents, {
   TableOfContentsProps
 } from '@/components/TableOfContents'
 import { getMDXComponent, getMDXExport } from 'mdx-bundler/client'
-import Link from 'next/link'
 import dayjs from 'dayjs'
 import HeroImage from '@/components/HeroImage'
 import CodeBlock from '@/components/CodeBlock'
@@ -33,6 +32,7 @@ import {
   getAllPostPaths,
   getSlugByPostPath
 } from '@/utils/post'
+import AppLink from '@/components/AppLink'
 
 const components = {
   code: CodeBlock,
@@ -119,11 +119,11 @@ export default function Post(props: PostProps) {
       {tags && tags.length > 0 && (
         <div className="flex items-center flex-wrap m-auto mt-6 sm:mt-12 text-sm gap-2 sm:gap-3">
           {tags.map((tag: string) => (
-            <Link key={tag} href={`/tags/${tag}`}>
+            <AppLink key={tag} href={`/tags/${tag}`}>
               <a className="bg-pink-500/10 text-pink-500 hover:text-pink-700 px-2 py-1 rounded font-medium transition">
                 {tag}
               </a>
-            </Link>
+            </AppLink>
           ))}
         </div>
       )}
@@ -153,23 +153,23 @@ export default function Post(props: PostProps) {
         {/* 下一篇 */}
         <span className="w-1/2">
           {prevPost ? (
-            <Link href={prevPost.link}>
+            <AppLink href={prevPost.link}>
               <a className="group flex h-full border border-zinc-400/20 rounded-xl p-3 sm:p-6 transition gap-2">
                 <div className="i-heroicons-outline:arrow-sm-left sm:-mt-[1px] shrink-0 text-2xl sm:text-3xl text-primary transition ease-out-back duration-500 sm:group-hover:-translate-x-2" />
                 {prevPost.title}
               </a>
-            </Link>
+            </AppLink>
           ) : null}
         </span>
         {/* 上一篇 */}
         <span className="w-1/2 text-right">
           {nextPost ? (
-            <Link href={nextPost.link}>
+            <AppLink href={nextPost.link}>
               <a className="group flex justify-end h-full border border-zinc-400/20 rounded-xl p-3 sm:p-6 transition gap-2">
                 {nextPost.title}
                 <div className="i-heroicons-outline:arrow-sm-right sm:-mt-[1px] shrink-0 text-2xl sm:text-3xl text-primary transition ease-out-back duration-500 sm:group-hover:translate-x-2" />
               </a>
-            </Link>
+            </AppLink>
           ) : null}
         </span>
       </div>

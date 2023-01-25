@@ -21,7 +21,7 @@ export default function App({
 }: AppProps & { Component: NextPageWithCustomProps }) {
   return (
     <>
-      <NextNProgress color="#395" options={{ showSpinner: false }} />
+      <NextNProgress color="#6366f1" options={{ showSpinner: false }} />
       <ThemeProvider attribute="class">
         <DefaultSeo title={config.title} description={config.desc} />
         <Head>

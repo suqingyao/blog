@@ -1,72 +1,76 @@
-import { motion } from 'framer-motion'
+import { animated, useSpring } from '@react-spring/web'
 
-export default function Hero() {
+const Hero = () => {
+  const order1 = useSpring({
+    from: {
+      y: 50,
+      opacity: 0
+    },
+    to: {
+      y: 0,
+      opacity: 1
+    }
+  })
+
+  const order2 = useSpring({
+    from: {
+      y: 50,
+      opacity: 0
+    },
+    to: {
+      y: 0,
+      opacity: 1
+    },
+    delay: 100
+  })
+
+  const order3 = useSpring({
+    from: {
+      y: 50,
+      opacity: 0
+    },
+    to: {
+      y: 0,
+      opacity: 1
+    },
+    delay: 200
+  })
+  const order4 = useSpring({
+    from: {
+      y: 50,
+      opacity: 0
+    },
+    to: {
+      y: 0,
+      opacity: 1
+    },
+    delay: 300
+  })
+  const order5 = useSpring({
+    from: {
+      y: 50,
+      opacity: 0
+    },
+    to: {
+      y: 0,
+      opacity: 1
+    },
+    delay: 400
+  })
+
   return (
     <section className={'outfit'}>
-      <h1 className="text-5xl font-bold flex flex-col gap-1">
-        <motion.p
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5 }}
-          variants={{
-            hidden: { opacity: 0, y: 50 },
-            visible: { opacity: 1, y: 0 }
-          }}
-        >
-          Hi,
-        </motion.p>
-        <motion.p
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ delay: 0.1, duration: 0.5 }}
-          variants={{
-            hidden: { opacity: 0, y: 50 },
-            visible: { opacity: 1, y: 0 }
-          }}
-        >
-          I&apos;m Cully Fung.
-        </motion.p>
-        <motion.p
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          variants={{
-            hidden: { opacity: 0, y: 50 },
-            visible: { opacity: 1, y: 0 }
-          }}
-        >
-          Front-end developer.
-        </motion.p>
-      </h1>
+      <div className="text-5xl font-bold flex flex-col gap-1">
+        <animated.p style={order1}>Hi,</animated.p>
+        <animated.p style={order2}>I&apos;m Cully Fung.</animated.p>
+        <animated.p style={order3}>Front-end developer.</animated.p>
+      </div>
       <div className="mt-6 flex flex-col gap-1 text-base">
-        <motion.p
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          variants={{
-            hidden: { opacity: 0, y: 50 },
-            visible: { opacity: 1, y: 0 }
-          }}
-        >
-          Currently working in Chongqing.{' '}
-        </motion.p>
-        <motion.p
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-          variants={{
-            hidden: { opacity: 0, y: 50 },
-            visible: { opacity: 1, y: 0 }
-          }}
-        >
-          I love coding.
-        </motion.p>
+        <animated.p style={order4}>Currently working in Chongqing. </animated.p>
+        <animated.p style={order5}>I love coding.</animated.p>
       </div>
     </section>
   )
 }
+
+export default Hero

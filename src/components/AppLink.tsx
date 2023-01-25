@@ -1,10 +1,10 @@
 import classNames from 'classnames'
 import Link, { LinkProps } from 'next/link'
-import React from 'react'
+import { ReactNode } from 'react'
 
 interface AppLinkProps extends LinkProps {
   className?: string
-  children?: React.ReactNode
+  children?: ReactNode
 }
 
 const AppLink = ({ className, children, ...rest }: AppLinkProps) => {
