@@ -36,7 +36,7 @@ export default function Navbar() {
               key={link.title}
               href={link.url}
               className={classNames(
-                { 'text-emerald': link.url === router.route },
+                { 'text-primary': link.url === router.route },
                 'flex flex-col justify-center'
               )}
             >

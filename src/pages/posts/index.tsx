@@ -1,8 +1,8 @@
 import { memo } from 'react'
 import { GetStaticProps } from 'next'
 import dayjs from 'dayjs'
-import Link from 'next/link'
 import { getLatestPosts } from '@/utils/post'
+import AppLink from '@/components/AppLink'
 
 export interface PostsProps {
   posts: Post[]
@@ -24,9 +24,9 @@ function Posts({ posts }: PostsProps) {
           )}
           <article key={idx} className="my-8">
             <h3 className="text-lg sm:text-xl">
-              <Link href={`/posts/${slug}`}>
-                <a className="hover:text-emerald">{frontmatter.title}</a>
-              </Link>
+              <AppLink href={`/posts/${slug}`}>
+                <a className="hover:text-primary">{frontmatter.title}</a>
+              </AppLink>
             </h3>
             <span className="font-medium inline-block text-sm mt-2 opacity-50">
               {dayjs(frontmatter.date).format('YYYY-MM-DD')}

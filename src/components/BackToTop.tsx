@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { animated, useTransition } from 'react-spring'
 import {
   animationFrameScheduler,
