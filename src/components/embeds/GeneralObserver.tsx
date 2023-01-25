@@ -13,20 +13,23 @@ export const GeneralObserver: FC<
   const [isChildVisible, setIsChildVisible] = useState(false)
   const observer = useRef<IntersectionObserver>()
 
-  const ref = useCallback((node: HTMLDivElement) => {
-    if (!node) return
-    observer.current?.disconnect()
-    observer.current = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.intersectionRatio > 0) {
-          setIsChildVisible(true)
-          onEnter && onEnter()
-        }
-      },
-      { rootMargin: '200px', threshold: 0 }
-    )
-    observer.current.observe(node)
-  }, [])
+  const ref = useCallback(
+    (node: HTMLDivElement) => {
+      if (!node) return
+      observer.current?.disconnect()
+      observer.current = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.intersectionRatio > 0) {
+            setIsChildVisible(true)
+            onEnter && onEnter()
+          }
+        },
+        { rootMargin: '200px', threshold: 0 }
+      )
+      observer.current.observe(node)
+    },
+    [onEnter]
+  )
 
   useUnmount(() => {
     return () => observer.current?.disconnect()

@@ -1,5 +1,4 @@
 import config from '@/config'
-import classNames from 'classnames'
 import AppLink from './AppLink'
 
 export default function Projects() {
