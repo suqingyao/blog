@@ -1,5 +1,4 @@
 import React, { useContext, useMemo } from 'react'
-import { HiArrowSmRight } from 'react-icons/hi'
 import { ListContext } from '@/components/lists/ListProvider'
 import classNames from 'classnames'
 
@@ -15,7 +14,7 @@ const ListItem: React.FC<JSX.IntrinsicElements['li']> = props => {
   const getMarker = {
     ul: () => (
       <span className="flex pt-[4px] pr-2">
-        <HiArrowSmRight className="text-xl -ml-1 mr-1 text-primary" />
+        <div className="i-heroicons-outline:arrow-sm-right text-xl -ml-1 mr-1 text-primary" />
       </span>
     ),
     // ol 的 marker 样式在 markdown.scss 中设置

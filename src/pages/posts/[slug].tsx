@@ -17,7 +17,6 @@ import { getMDXComponent, getMDXExport } from 'mdx-bundler/client'
 import Link from 'next/link'
 import dayjs from 'dayjs'
 import HeroImage from '@/components/HeroImage'
-import { HiArrowSmLeft, HiArrowSmRight, HiOutlineClock } from 'react-icons/hi'
 import CodeBlock from '@/components/CodeBlock'
 import Blockquote from '@/components/Blockquote'
 import Image from '@/components/Image'
@@ -110,7 +109,7 @@ export default function Post(props: PostProps) {
       <div className="text-gray-500 dark:text-gray-300 mt-4">
         <div className="flex items-center text-sm">
           <span className="flex items-center">
-            <HiOutlineClock className="mr-1 text-lg" />
+            <div className="i-heroicons-outline:clock mr-1 text-lg" />
             {/* {t('post-page.last-updated')} */}
             {dayjs(updateOn || date).format('YYYY-MM-DD')} • {readingTime.text}
           </span>
@@ -156,7 +155,7 @@ export default function Post(props: PostProps) {
           {prevPost ? (
             <Link href={prevPost.link}>
               <a className="group flex h-full border border-zinc-400/20 rounded-xl p-3 sm:p-6 transition gap-2">
-                <HiArrowSmLeft className="sm:-mt-[1px] shrink-0 text-2xl sm:text-3xl text-primary transition ease-out-back duration-500 sm:group-hover:-translate-x-2" />
+                <div className="i-heroicons-outline:arrow-sm-left sm:-mt-[1px] shrink-0 text-2xl sm:text-3xl text-primary transition ease-out-back duration-500 sm:group-hover:-translate-x-2" />
                 {prevPost.title}
               </a>
             </Link>
@@ -168,7 +167,7 @@ export default function Post(props: PostProps) {
             <Link href={nextPost.link}>
               <a className="group flex justify-end h-full border border-zinc-400/20 rounded-xl p-3 sm:p-6 transition gap-2">
                 {nextPost.title}
-                <HiArrowSmRight className="sm:-mt-[1px] shrink-0 text-2xl sm:text-3xl text-primary transition ease-out-back duration-500 sm:group-hover:translate-x-2" />
+                <div className="i-heroicons-outline:arrow-sm-right sm:-mt-[1px] shrink-0 text-2xl sm:text-3xl text-primary transition ease-out-back duration-500 sm:group-hover:translate-x-2" />
               </a>
             </Link>
           ) : null}

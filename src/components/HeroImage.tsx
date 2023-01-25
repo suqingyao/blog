@@ -1,7 +1,6 @@
 import React from 'react'
 import useImage from '@/hooks/useImage'
 import { NativeProps, withNativeProps } from '@/utils/native-props'
-import { AiOutlineLoading } from 'react-icons/ai'
 
 export interface HeroImage extends NativeProps {
   src: string
@@ -14,7 +13,7 @@ export default function HeroImage(props: HeroImage) {
 
   const loading = (
     <div className="flex h-full items-center justify-center bg-slate-200/70 dark:bg-zinc-600/20 text-slate-500/50">
-      <AiOutlineLoading className="text-4xl animate-spin" />
+      <div className="i-ri:loader-2-line text-4xl animate-spin" />
     </div>
   )
 
