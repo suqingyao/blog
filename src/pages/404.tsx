@@ -1,4 +1,4 @@
-import { Image } from '@/components'
+import Image from 'next/image'
 
 export default function NotFoundPage() {
   return (
@@ -6,6 +6,7 @@ export default function NotFoundPage() {
       <Image
         src="/404.svg"
         alt="404 not found"
+        layout="fill"
         className="w-full sm:w-1/2 animate-floating"
       />
     </div>

@@ -19,7 +19,6 @@ import {
   HeroImage,
   CodeBlock,
   Blockquote,
-  Image,
   DarkModeToggle,
   UnorderedList,
   OrderedList,
@@ -35,6 +34,7 @@ import {
   getAllPostPaths,
   getSlugByPostPath
 } from '@/utils/post'
+import Image from 'next/image'
 
 const components = {
   code: CodeBlock,

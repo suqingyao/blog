@@ -1,5 +1,5 @@
-import React from 'react'
+import NextImage from 'next/image'
 
 export default function Image(props: any) {
-  return <img alt="" loading="lazy" {...props} />
+  return <img {...props} />
 }
