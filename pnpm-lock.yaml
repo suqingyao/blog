@@ -58,7 +58,6 @@ specifiers:
   remark-frontmatter: ^4.0.1
   remark-gfm: ^3.0.1
   remark-reading-time: ^2.0.1
-  rxjs: ^7.5.7
   sass: ^1.56.1
   sucrase: ^3.29.0
   typescript: 4.8.4
@@ -84,7 +83,6 @@ dependencies:
   react-lazyload: 3.2.0_biqbaboplfbrettd7655fr4n2y
   react-simple-code-editor: 0.13.1_biqbaboplfbrettd7655fr4n2y
   react-use: 17.4.0_biqbaboplfbrettd7655fr4n2y
-  rxjs: 7.5.7
   sucrase: 3.29.0
   use-sound: 4.0.1_react@18.2.0
 
@@ -4970,6 +4968,7 @@ packages:
     resolution: {integrity: sha512-z9MzKh/UcOqB3i20H6rtrlaE/CgjLOvheWK/9ILrbhROGTweAi1BaFsTT9FbwZi5Trr1qNRs+MXkhmR06awzQA==}
     dependencies:
       tslib: 2.4.0
+    dev: true
 
   /sade/1.8.1:
     resolution: {integrity: sha512-xal3CZX1Xlo/k4ApwCFrHVACi9fBqJ7V+mwhBsuf/1IOKbBy098Fex+Wa/5QMubw09pSZ/u8EY8PWgevJsXp1A==}

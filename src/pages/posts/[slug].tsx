@@ -39,7 +39,7 @@ import Image from 'next/image'
 const components = {
   code: CodeBlock,
   blockquote: Blockquote,
-  img: Image,
+  Image,
   ul: UnorderedList,
   ol: OrderedList,
   li: ListItem,

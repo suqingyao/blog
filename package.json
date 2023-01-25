@@ -36,7 +36,6 @@
     "react-lazyload": "^3.2.0",
     "react-simple-code-editor": "^0.13.1",
     "react-use": "^17.4.0",
-    "rxjs": "^7.5.7",
     "sucrase": "^3.29.0",
     "use-sound": "^4.0.1"
   },

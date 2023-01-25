@@ -1,15 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { animated, useTransition } from '@react-spring/web'
-import {
-  animationFrameScheduler,
-  distinctUntilChanged,
-  fromEvent,
-  map,
-  startWith,
-  throttleTime
-} from 'rxjs'
+import { throttle } from 'lodash'
 
-export default function BackToTop() {
+const BackToTop = () => {
   const [visible, setVisible] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
@@ -21,20 +14,18 @@ export default function BackToTop() {
   })
 
   useEffect(() => {
-    const sub = fromEvent(window, 'scroll')
-      .pipe(
-        throttleTime(0, animationFrameScheduler),
-        startWith(null),
-        map(() => window.scrollY > 500),
-        distinctUntilChanged()
-      )
-      .subscribe(bool => {
-        setVisible(bool)
-      })
-    return () => sub.unsubscribe()
+    const listener = throttle(() => {
+      if (window.scrollY > 500) {
+        setVisible(true)
+      } else {
+        setVisible(false)
+      }
+    }, 500)
+    window.addEventListener('scroll', listener)
+    return () => window.removeEventListener('scroll', listener)
   }, [])
 
-  function backToTop() {
+  const backToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
@@ -63,3 +54,5 @@ export default function BackToTop() {
       )
   )
 }
+
+export default BackToTop
