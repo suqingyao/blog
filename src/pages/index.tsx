@@ -2,7 +2,7 @@ import type { GetStaticProps } from 'next'
 import { Hero, Projects, Posts } from '@/components'
 import { getLatestPostsTop5 } from '@/utils/post'
 
-export function Home({ posts }: { posts: Post[] }) {
+const Home = ({ posts }: { posts: Post[] }) => {
   return (
     <div className={'w-full h-full'}>
       <Hero />
