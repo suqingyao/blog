@@ -3,36 +3,61 @@ import { GetStaticProps } from 'next'
 import dayjs from 'dayjs'
 import { getLatestPosts } from '@/utils/post'
 import { AppLink } from '@/components'
+import { animated, useSpring, useTrail } from '@react-spring/web'
 
 export interface PostsProps {
   posts: Post[]
 }
 
-function Posts({ posts }: PostsProps) {
+const Posts = ({ posts }: PostsProps) => {
+  const yearStyle = useSpring({
+    from: {
+      y: 100,
+      opacity: 0
+    },
+    to: {
+      y: 0,
+      opacity: 1
+    }
+  })
+
+  const trail = useTrail(posts.length, {
+    from: { opacity: 0, y: 100 },
+    to: { opacity: 1, y: 0 }
+  })
+
   return (
     <div className="max-w-[80ch] w-full">
-      {posts.map(({ frontmatter, slug }, idx) => (
-        <div key={idx}>
+      {trail.map(({ y, ...rest }, idx) => (
+        <animated.div
+          key={idx}
+          style={{ ...rest, transform: y.to(y => `translate3d(0,${y}px,0)`) }}
+        >
           {(idx === 0 ||
             dayjs(posts[idx - 1].frontmatter.date).year() !==
-              dayjs(frontmatter.date).year()) && (
-            <div className="relative pointer-events-none h20">
+              dayjs(posts[idx].frontmatter.date).year()) && (
+            <animated.div
+              className="relative pointer-events-none h20"
+              style={yearStyle}
+            >
               <span className="absolute font-bold top-6rem left--3rem text-8em opacity-10">
-                {dayjs(frontmatter.date).year()}
+                {dayjs(posts[idx].frontmatter.date).year()}
               </span>
-            </div>
+            </animated.div>
           )}
           <article key={idx} className="my-8">
             <h3 className="text-lg sm:text-xl">
-              <AppLink href={`/posts/${slug}`}>
-                <a className="hover:text-primary">{frontmatter.title}</a>
+              <AppLink href={`/posts/${posts[idx].slug}`}>
+                <a className="hover:text-primary">
+                  {posts[idx].frontmatter.title}
+                </a>
               </AppLink>
             </h3>
             <span className="font-medium inline-block text-sm mt-2 opacity-50">
-              {dayjs(frontmatter.date).format('YYYY-MM-DD')}
+              {dayjs(posts[idx].frontmatter.date).format('YYYY-MM-DD')}
             </span>
           </article>
-        </div>
+        </animated.div>
       ))}
     </div>
   )
