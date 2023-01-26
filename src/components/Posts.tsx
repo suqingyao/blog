@@ -1,4 +1,4 @@
-import { animated, useTrail } from '@react-spring/web'
+import { animated, useSpring, useTrail } from '@react-spring/web'
 import dayjs from 'dayjs'
 import AppLink from './AppLink'
 
@@ -7,14 +7,21 @@ interface PostsProps {
 }
 
 export default function Posts({ posts }: PostsProps) {
+  const titleStyle = useSpring({
+    from: { x: 100, opacity: 0 },
+    to: { x: 0, opacity: 1 }
+  })
+
   const trail = useTrail(posts.length, {
-    from: { opacity: 0, x: 50 },
+    from: { opacity: 0, x: 100 },
     to: { opacity: 1, x: 0 }
   })
   return (
     <>
       <h2 className="flex items-center mt-14 mb-4 font-semibold text-3xl">
-        <span className="flex-1">Latest Posts</span>
+        <animated.span className="flex-1" style={titleStyle}>
+          Latest Posts
+        </animated.span>
         <AppLink href="/posts">
           <div className="op-50 ml-2 hover:op-100 transition-opacity cursor-pointer">
             <div className="m-2 i-ri-arrow-right-up-line"></div>

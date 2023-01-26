@@ -42,11 +42,11 @@ export default function Navbar() {
               href={link.url}
               className={classNames(
                 { 'text-primary': link.url === router.route },
-                'flex flex-col justify-center'
+                'flex flex-col justify-center hover:text-primary'
               )}
             >
               <span className="lt-md:hidden">{link.title}</span>
-              <i className={link.icon} />
+              <div className={link.icon} />
             </AppLink>
           ))}
           <GithubLink />

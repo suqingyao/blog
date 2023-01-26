@@ -1,13 +1,26 @@
 import config from '@/config'
+import { animated, useSpring, useTrail } from '@react-spring/web'
 import AppLink from './AppLink'
 
-export default function Projects() {
+const Projects = () => {
   const { projects, github } = config
+
+  const titleStyle = useSpring({
+    from: { x: 100, opacity: 0 },
+    to: { x: 0, opacity: 1 }
+  })
+
+  const trail = useTrail(projects.length, {
+    from: { opacity: 0, y: 100 },
+    to: { opacity: 1, y: 0 }
+  })
 
   return (
     <>
       <h2 className="flex items-center mt-14 mb-4 font-semibold text-3xl">
-        <span className="outfit flex-1">Projects</span>
+        <animated.span className="outfit flex-1" style={titleStyle}>
+          Projects
+        </animated.span>
         <AppLink
           href={github}
           className="op-50 ml-2 hover:op-100 transition-opacity cursor-pointer"
@@ -16,15 +29,20 @@ export default function Projects() {
         </AppLink>
       </h2>
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
-        {projects.map((project, index) => (
-          <Card key={index} project={project} />
+        {trail.map(({ y, ...rest }, index) => (
+          <animated.div
+            key={index}
+            style={{ ...rest, transform: y.to(y => `translate3d(0,${y}px,0)`) }}
+          >
+            <Card project={projects[index]} />
+          </animated.div>
         ))}
       </div>
     </>
   )
 }
 
-function Card({ project }: { project: Project }) {
+const Card = ({ project }: { project: Project }) => {
   return (
     <AppLink
       href={project.repo}
@@ -42,3 +60,5 @@ function Card({ project }: { project: Project }) {
     </AppLink>
   )
 }
+
+export default Projects
