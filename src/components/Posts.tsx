@@ -12,6 +12,12 @@ export default function Posts({ posts }: PostsProps) {
     to: { x: 0, opacity: 1 }
   })
 
+  const moreLinkStyle = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    delay: 300
+  })
+
   const trail = useTrail(posts.length, {
     from: { opacity: 0, x: 100 },
     to: { opacity: 1, x: 0 }
@@ -24,7 +30,10 @@ export default function Posts({ posts }: PostsProps) {
         </animated.span>
         <AppLink href="/posts">
           <div className="op-50 ml-2 hover:op-100 transition-opacity cursor-pointer">
-            <div className="m-2 i-ri-arrow-right-up-line"></div>
+            <animated.div
+              className="m-2 i-ri-arrow-right-up-line"
+              style={moreLinkStyle}
+            />
           </div>
         </AppLink>
       </h2>

@@ -10,6 +10,12 @@ const Projects = () => {
     to: { x: 0, opacity: 1 }
   })
 
+  const moreLinkStyle = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    delay: 300
+  })
+
   const trail = useTrail(projects.length, {
     from: { opacity: 0, y: 100 },
     to: { opacity: 1, y: 0 }
@@ -25,7 +31,10 @@ const Projects = () => {
           href={github}
           className="op-50 ml-2 hover:op-100 transition-opacity cursor-pointer"
         >
-          <div className="m-2 i-ri-arrow-right-up-line" />
+          <animated.div
+            className="m-2 i-ri-arrow-right-up-line"
+            style={moreLinkStyle}
+          />
         </AppLink>
       </h2>
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">

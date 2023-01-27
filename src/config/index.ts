@@ -13,6 +13,24 @@ export const projects: Project[] = [
   }
 ]
 
+export const linkList: Array<{ url: string; title: string; icon?: string }> = [
+  {
+    url: '/',
+    title: 'Home',
+    icon: 'i-ri:home-heart-line md:hidden'
+  },
+  {
+    url: '/posts',
+    title: 'Posts',
+    icon: 'i-ri-article-line md:hidden'
+  },
+  {
+    url: '/about',
+    title: 'About',
+    icon: 'i-ri:game-fill md:hidden'
+  }
+]
+
 const config = {
   name: 'cullyfung',
   title: "CullyFung's Blog",

@@ -4,32 +4,9 @@ import DarkModeToggle from './DarkModeToggle'
 import AppLink from './AppLink'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
-
-interface LinkProps {
-  url: string
-  title: string
-  icon?: string
-}
+import { linkList } from '@/config'
 
 export default function Navbar() {
-  const linkList: LinkProps[] = [
-    {
-      url: '/',
-      title: 'Home',
-      icon: 'i-ri:home-heart-line md:hidden'
-    },
-    {
-      url: '/posts',
-      title: 'Posts',
-      icon: 'i-ri-article-line md:hidden'
-    },
-    {
-      url: '/about',
-      title: 'About',
-      icon: 'i-ri:game-fill md:hidden'
-    }
-  ]
-
   const router = useRouter()
 
   return (
