@@ -37,7 +37,7 @@ export const GeneralObserver: FC<
 
   return withNativeProps(
     props,
-    <div ref={ref} className="relative" style={{ width: '100%' }}>
+    <div ref={ref} className="relative w-full">
       {isChildVisible && children}
     </div>
   )
