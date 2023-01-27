@@ -2,6 +2,7 @@ import {
   defineConfig,
   presetUno,
   presetIcons,
+  presetWebFonts,
   transformerDirectives
 } from 'unocss'
 
@@ -30,6 +31,15 @@ module.exports = defineConfig({
     }
   },
   rules: [],
-  presets: [presetUno(), presetIcons()],
+  presets: [
+    presetUno(),
+    presetIcons(),
+    presetWebFonts({
+      fonts: {
+        sans: ['IBM Plex Sans', 'Outfit'],
+        mono: ['IBM Plex Sans:400,500,600,700', 'Outfit:400,700']
+      }
+    })
+  ],
   transformers: [transformerDirectives()]
 })
