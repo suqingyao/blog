@@ -1,9 +1,3 @@
-@layer components {
-  .divider {
-    @apply box-content my-12 h-px dark:bg-zinc-800 dark:border-black transition-colors;
-  }
-}
-
 html {
   font-family: 'IBM Plex Sans', sans-serif;
   scroll-behavior: smooth;

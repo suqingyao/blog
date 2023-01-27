@@ -150,7 +150,7 @@ export default function Post(props: PostProps) {
           <TableOfContents className="hidden sm:block" headings={headings} />
         )}
       </div>
-      <hr className="box-content my-12 h-px dark:bg-zinc-800 dark:border-black transition-colors" />
+      <hr className="divider" />
       <div className="mb-20 flex justify-between space-x-6 sm:space-x-12 sm:text-lg font-medium">
         {/* 下一篇 */}
         <span className="w-1/2">

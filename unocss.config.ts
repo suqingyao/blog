@@ -11,26 +11,25 @@ module.exports = defineConfig({
   theme: {
     colors: {
       primary: '#6366f1'
-    },
-    animation: {
-      keyframes: {
-        floating: `{
-          0%: { transform: translate(0, 0) },
-          100%: { transform: translate(0, 10%) }
-        }`
-      },
-      durations: {
-        floating: '4s'
-      },
-      timingFns: {
-        floating: 'ease-in-out'
-      },
-      counts: {
-        floating: 'infinite'
-      }
     }
   },
-  rules: [],
+  rules: [
+    [
+      'divider',
+      {
+        boxSizing: 'content-box',
+        margin: '3rem 0',
+        height: '1px'
+      },
+      { layer: 'components' }
+    ],
+    [
+      'animate-floating',
+      {
+        animation: 'floating 4s ease-in-out infinite alternate'
+      }
+    ]
+  ],
   presets: [
     presetUno(),
     presetIcons(),

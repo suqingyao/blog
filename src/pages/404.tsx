@@ -7,7 +7,7 @@ export default function NotFoundPage() {
         src="/404.svg"
         alt="404 not found"
         layout="fill"
-        className="w-full sm:w-1/2 animate-floating"
+        className="w-full sm:w-1/2"
       />
     </div>
   )
