@@ -1,5 +1,4 @@
 import React from 'react'
-import { GithubLink } from '@/components'
 import DarkModeToggle from './DarkModeToggle'
 import AppLink from './AppLink'
 import { useRouter } from 'next/router'
@@ -49,7 +48,6 @@ export default function Navbar() {
               />
             </div>
           ))}
-          <GithubLink />
           <DarkModeToggle />
         </div>
       </div>

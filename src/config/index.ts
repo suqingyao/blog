@@ -13,6 +13,16 @@ export const projects: Project[] = [
   }
 ]
 
+const config = {
+  name: 'cullyfung',
+  title: "CullyFung's Blog",
+  desc: "Hi, I'm Cully Fung. Front-end developer. Currently working in Chongqing. I love coding.",
+  avatar: '/avatar.png',
+  logo: '/avatar.png',
+  github: 'https://github.com/cullyfung',
+  projects
+}
+
 export const linkList: Array<{ url: string; title: string; icon?: string }> = [
   {
     url: '/',
@@ -28,18 +38,12 @@ export const linkList: Array<{ url: string; title: string; icon?: string }> = [
     url: '/about',
     title: 'About',
     icon: 'i-ri:game-fill md:hidden'
+  },
+  {
+    url: config.github,
+    title: 'Github',
+    icon: 'i-ri-github-line md:hidden'
   }
 ]
-
-const config = {
-  name: 'cullyfung',
-  title: "CullyFung's Blog",
-  desc: "Hi, I'm Cully Fung. Front-end developer. Currently working at Chongqin. I love coding.",
-  avatar: '/avatar.png',
-  logo: '/avatar.png',
-  projects,
-  posts: [],
-  github: 'https://github.com/cullyfung'
-}
 
 export default config
