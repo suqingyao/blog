@@ -26,7 +26,7 @@ const config = {
 export const linkList: Array<{ url: string; title: string; icon?: string }> = [
   {
     url: '/',
-    title: 'Home',
+    title: 'Portfolio',
     icon: 'i-ri:home-heart-line md:hidden'
   },
   {
