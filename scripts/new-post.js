@@ -5,7 +5,7 @@ const pangu = require('pangu')
 
 // npm run new:post name [tag1] [tag2] ...
 const createPost = async () => {
-  const [, , filename, ...tags] = process.argv
+  const [, , filename] = process.argv
 
   await fs.outputFile(
     path.resolve(
@@ -16,7 +16,6 @@ const createPost = async () => {
     ---
       title: '${pangu.spacing(filename)}'
       date: '${dayjs().format('YYYY-MM-DD HH:mm:ss')}'
-      tags:${tags.map(tag => `\n  - '${tag}'`).join('')}
     ---
     `
   )

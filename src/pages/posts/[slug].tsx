@@ -1,40 +1,40 @@
-import { GetStaticPaths, GetStaticProps } from 'next'
-import { bundleMDX } from 'mdx-bundler'
-import remarkGfm from 'remark-gfm'
-import remarkDirective from 'remark-directive'
-import rehypeSlug from 'rehype-slug'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import remarkMdxMetaToProps from '@/lib/remark-mdx-meta-to-props.js'
-import remarkNoteBlock from '@/lib/remark-note-block.js'
-import remarkReadingTime from 'remark-reading-time'
-import remarkReadingMdxTime from 'remark-reading-time/mdx'
-import path from 'path'
-import React, { DependencyList, useEffect, useMemo, useState } from 'react'
+import {
+  AppLink,
+  Blockquote,
+  CodeBlock,
+  CodePen,
+  CodeSandbox,
+  DarkModeToggle,
+  HeroImage,
+  ListItem,
+  OrderedList,
+  StackBlitz,
+  UnorderedList,
+  YouTube
+} from '@/components'
 import TableOfContents, {
   TableOfContentsProps
 } from '@/components/TableOfContents'
-import { getMDXComponent, getMDXExport } from 'mdx-bundler/client'
-import dayjs from 'dayjs'
-import {
-  HeroImage,
-  CodeBlock,
-  Blockquote,
-  DarkModeToggle,
-  UnorderedList,
-  OrderedList,
-  ListItem,
-  YouTube,
-  StackBlitz,
-  CodeSandbox,
-  CodePen,
-  AppLink
-} from '@/components'
+import remarkMdxMetaToProps from '@/lib/remark-mdx-meta-to-props.js'
+import remarkNoteBlock from '@/lib/remark-note-block.js'
 import {
   getAdjacentPosts,
   getAllPostPaths,
   getSlugByPostPath
 } from '@/utils/post'
+import dayjs from 'dayjs'
+import { bundleMDX } from 'mdx-bundler'
+import { getMDXComponent, getMDXExport } from 'mdx-bundler/client'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import Image from 'next/image'
+import path from 'path'
+import { DependencyList, useEffect, useMemo, useState } from 'react'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeSlug from 'rehype-slug'
+import remarkDirective from 'remark-directive'
+import remarkGfm from 'remark-gfm'
+import remarkReadingTime from 'remark-reading-time'
+import remarkReadingMdxTime from 'remark-reading-time/mdx'
 
 const components = {
   code: CodeBlock,
@@ -87,7 +87,6 @@ export default function Post(props: PostProps) {
       title,
       date,
       updateOn,
-      tags,
       toc = true,
       heroImage,
       heroImageAspectRatio = '16 / 9'
@@ -117,18 +116,6 @@ export default function Post(props: PostProps) {
           </span>
         </div>
       </div>
-      {/* 标签 */}
-      {tags && tags.length > 0 && (
-        <div className="flex items-center flex-wrap m-auto mt-6 sm:mt-12 text-sm gap-2 sm:gap-3">
-          {tags.map((tag: string) => (
-            <AppLink key={tag} href={`/tags/${tag}`}>
-              <a className="bg-pink-500/10 text-pink-500 hover:text-pink-700 px-2 py-1 rounded font-medium transition">
-                {tag}
-              </a>
-            </AppLink>
-          ))}
-        </div>
-      )}
       <div className="relative flex w-full">
         <div className="flex-1 w-0">
           {/* 文章顶部图片 */}
