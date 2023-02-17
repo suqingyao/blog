@@ -1,9 +1,9 @@
-import React from 'react'
-import { scope as builtInScope } from './react-live-scope'
+import CodePlayground from '@/components/CodeBlock/CodePlayground'
+import FencedCodeBlock from '@/components/CodeBlock/FencedCodeBlock'
 import { NativeProps } from '@/utils/native-props'
 import { Language } from 'prism-react-renderer'
-import FencedCodeBlock from '@/components/CodeBlock/FencedCodeBlock'
-import CodePlayground from '@/components/CodeBlock/CodePlayground'
+import React from 'react'
+import { scope as builtInScope } from './react-live-scope'
 
 export interface CodeBlockProps extends NativeProps {
   children?: string

@@ -1,13 +1,13 @@
-import React from 'react'
+import LivePreview from '@/components/playground/LivePreview'
 import LiveProvider, {
   LiveProviderProps
 } from '@/components/playground/LiveProvider'
 import classNames from 'classnames'
-import styles from './CodePlayground.module.scss'
-import { scope as builtInScope } from './react-live-scope'
+import React from 'react'
 import LazyLoad from 'react-lazyload'
-import LivePreview from '@/components/playground/LivePreview'
+import styles from './CodePlayground.module.scss'
 import Editor from './Editor'
+import { scope as builtInScope } from './react-live-scope'
 
 const CodePlayground: React.FC<{
   code: string

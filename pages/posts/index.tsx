@@ -1,9 +1,9 @@
-import { memo } from 'react'
-import { GetStaticProps } from 'next'
-import dayjs from 'dayjs'
-import { getLatestPosts } from '@/utils/post'
 import { AppLink } from '@/components'
+import { getLatestPosts } from '@/utils/post'
 import { animated, useSpring, useTrail } from '@react-spring/web'
+import dayjs from 'dayjs'
+import { GetStaticProps } from 'next'
+import { memo } from 'react'
 
 export interface PostsProps {
   posts: Post[]

@@ -1,6 +1,6 @@
-import React, { useContext, useMemo } from 'react'
 import { ListContext } from '@/components/lists/ListProvider'
 import classNames from 'classnames'
+import React, { useContext, useMemo } from 'react'
 
 const ListItem: React.FC<JSX.IntrinsicElements['li']> = props => {
   const { children, className = '', ...rest } = props
