@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@commitlint/cli': ^17.3.0
   '@commitlint/config-conventional': ^17.3.0
+  '@cullyfung/utils': ^0.0.2
   '@iconify-json/heroicons-outline': ^1.1.5
   '@iconify-json/ri': ^1.1.4
   '@iconify-json/twemoji': ^1.1.7
@@ -62,6 +63,7 @@ specifiers:
   use-sound: ^4.0.1
 
 dependencies:
+  '@cullyfung/utils': 0.0.2
   '@react-spring/web': 9.6.1_biqbaboplfbrettd7655fr4n2y
   ahooks: 3.7.2_react@18.2.0
   classnames: 2.3.2
@@ -354,6 +356,10 @@ packages:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
+
+  /@cullyfung/utils/0.0.2:
+    resolution: {integrity: sha512-UkDN/cmMxKsar37qRSBc/g0eDBvwQtdCVKQCQs2NVcZbwmNhkJu9WS/CYe6qebb54rel7lJ9RbauzB7c9uFcRA==}
+    dev: false
 
   /@esbuild-kit/cjs-loader/2.4.0:
     resolution: {integrity: sha512-DBBCiHPgL2B/elUpvCDhNHXnlZQ9sfO2uyt1OJyAXKT41beQEFY4OxZ6gwS+ZesRCbZ6JV8M7GEyOPkjv8kdIw==}

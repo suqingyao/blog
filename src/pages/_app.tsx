@@ -1,13 +1,13 @@
-import '@unocss/reset/tailwind.css'
-import 'uno.css'
+import { BackToTop, Footer, Layout, Plum } from '@/components'
+import config from '@/config'
 import '@/styles/index.scss'
+import '@unocss/reset/tailwind.css'
+import { DefaultSeo } from 'next-seo'
+import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import NextNProgress from 'nextjs-progressbar'
-import { Plum, BackToTop, Footer, Layout } from '@/components'
-import config from '@/config'
-import { ThemeProvider } from 'next-themes'
-import { DefaultSeo } from 'next-seo'
+import 'uno.css'
 
 export default function App({
   Component,
@@ -15,7 +15,7 @@ export default function App({
 }: AppProps & { Component: NextPageWithCustomProps }) {
   return (
     <>
-      <NextNProgress color="#6366f1" options={{ showSpinner: false }} />
+      <NextNProgress color="#00F183" options={{ showSpinner: false }} />
       <ThemeProvider attribute="class">
         <DefaultSeo title={config.title} description={config.desc} />
         <Head>

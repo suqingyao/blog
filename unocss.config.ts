@@ -1,6 +1,7 @@
 import {
   defineConfig,
   presetIcons,
+  presetTypography,
   presetUno,
   presetWebFonts,
   transformerDirectives,
@@ -8,10 +9,42 @@ import {
 } from 'unocss'
 
 module.exports = defineConfig({
+  presets: [
+    presetUno(),
+    presetIcons({
+      extraProperties: {
+        display: 'inline-block',
+        height: '1.2em',
+        width: '1.2em',
+        'vertical-align': 'text-bottom'
+      }
+    }),
+    presetTypography({
+      selectorName: 'markdown',
+      cssExtend: {
+        code: {
+          color: '#8b5cf6'
+        },
+        'a:hover': {
+          color: '#f43f5e'
+        },
+        'a:visited': {
+          color: '#14b8a6'
+        }
+      }
+    }),
+    presetWebFonts({
+      provider: 'google',
+      fonts: {
+        sans: ['IBM Plex Sans', 'Outfit']
+      }
+    })
+  ],
+  transformers: [transformerDirectives(), transformerVariantGroup()],
   shortcuts: {},
   theme: {
     colors: {
-      primary: '#6366f1'
+      primary: '#00F183'
     },
     animation: {
       keyframes: {
@@ -41,16 +74,5 @@ module.exports = defineConfig({
       },
       { layer: 'components' }
     ]
-  ],
-  presets: [
-    presetUno(),
-    presetIcons(),
-    presetWebFonts({
-      fonts: {
-        sans: ['IBM Plex Sans', 'Outfit'],
-        mono: ['IBM Plex Sans:400,500,600,700', 'Outfit:400,700']
-      }
-    })
-  ],
-  transformers: [transformerDirectives(), transformerVariantGroup()]
+  ]
 })

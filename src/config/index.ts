@@ -33,16 +33,6 @@ export const linkList: Array<{ url: string; title: string; icon?: string }> = [
     url: '/posts',
     title: 'Posts',
     icon: 'i-ri-article-line md:hidden'
-  },
-  {
-    url: '/about',
-    title: 'About',
-    icon: 'i-ri:game-fill md:hidden'
-  },
-  {
-    url: config.github,
-    title: 'Github',
-    icon: 'i-ri-github-line md:hidden'
   }
 ]
 
