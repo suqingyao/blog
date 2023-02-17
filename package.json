@@ -8,7 +8,7 @@
     "lint": "next lint",
     "new:post": "node ./scripts/new-post",
     "prepare": "husky install",
-    "prettier": "prettier --write './src/**/*.{js,jsx,ts,tsx,json}'",
+    "prettier": "prettier --write './**/*.{js,jsx,ts,tsx,json}'",
     "start": "next start",
     "update:deps": "npx taze -w"
   },
